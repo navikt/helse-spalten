@@ -1,0 +1,55 @@
+name: Bygg og deploy studio
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - '.idea/**'
+    branches:
+      - main
+
+env:
+  IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Konfigurer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          registry-url: 'https://npm.pkg.github.com'
+          cache: 'yarn'
+
+      - name: Installer avhengigheter
+        run: yarn install --immutable
+
+      - name: Bygg applikasjon
+        run: yarn build
+
+      - name: Deploy dev
+        uses: navikt/frontend/actions/spa-deploy/v1@main
+        with:
+          app-name: helse-spalten
+          team-name: tbd
+          source: ./dist
+          ingress: https://spalten.intern.dev.nav.no
+          environment: dev
+          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+
+      - name: Deploy prod
+        uses: navikt/frontend/actions/spa-deploy/v1@main
+        with:
+          app-name: helse-spalten
+          team-name: tbd
+          source: ./dist
+          ingress: https://spalten.intern.nav.no
+          environment: prod
+          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
