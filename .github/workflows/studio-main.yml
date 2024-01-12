@@ -34,15 +34,15 @@ jobs:
       - name: Bygg applikasjon
         run: yarn build
 
-      - name: Deploy dev
-        uses: navikt/frontend/actions/spa-deploy/v1@main
-        with:
-          app-name: helse-spalten
-          team-name: tbd
-          source: ./dist
-          ingress: https://spalten.intern.dev.nav.no
-          environment: dev
-          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#      - name: Deploy dev
+#        uses: navikt/frontend/actions/spa-deploy/v1@main
+#        with:
+#          app-name: helse-spalten
+#          team-name: tbd
+#          source: ./dist
+#          ingress: https://spalten.intern.dev.nav.no
+#          environment: dev
+#          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
 
       - name: Deploy prod
         uses: navikt/frontend/actions/spa-deploy/v1@main
