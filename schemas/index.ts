@@ -1,9 +1,8 @@
-import nyhet from "./nyheter/nyhet";
-import nyhetsslide from "./nyheter/nyhetsslide";
-import driftsmelding from "./driftsmeldinger/driftsmelding";
+import nyhet from './nyheter/nyhet'
+import nyhetsslide from './nyheter/nyhetsslide'
+import driftsmelding from './driftsmeldinger/driftsmelding'
+import subdomene from './varsler/subdomene'
+import kontekst from './varsler/kontekst'
+import varsel from './varsler/varsel'
 
-export const schemaTypes = [
-    nyhet,
-    nyhetsslide,
-    driftsmelding
-]
+export const schemaTypes = [nyhet, nyhetsslide, driftsmelding, subdomene, kontekst, varsel]
