@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
-  "license": "UNLICENSED",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
@@ -38,7 +37,8 @@
   "prettier": {
     "semi": false,
     "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "tabWidth": 4
   }
 }
