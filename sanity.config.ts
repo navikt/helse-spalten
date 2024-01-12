@@ -6,7 +6,7 @@ import { deskStructure } from './deskStructure'
 
 export default defineConfig({
     name: 'default',
-    title: 'Speilblogg',
+    title: 'Spalten',
 
     projectId: 'z9kr8ddn',
     dataset: 'production',
