@@ -14,6 +14,12 @@ export default defineType({
             validation: (Rule) => Rule.required().error('Tittel er påkrevd'),
         }),
         defineField({
+            name: 'avviklet',
+            title: 'Avviklet',
+            type: 'boolean',
+            initialValue: false,
+        }),
+        defineField({
             name: 'subdomene',
             title: 'Subdomene',
             type: 'reference',
@@ -57,6 +63,20 @@ export default defineType({
             type: 'text',
         }),
     ],
+    preview: {
+        select: {
+            tittel: 'tittel',
+            varselkode: 'varselkode.current',
+            avviklet: 'avviklet',
+        },
+        prepare(selection) {
+            const { tittel, varselkode, avviklet } = selection
+            return {
+                title: `${tittel}`,
+                subtitle: `${varselkode} ${avviklet ? '- avviklet' : ''}`,
+            }
+        },
+    },
 })
 
 const getVarselkoder = async (
