@@ -44,14 +44,57 @@ export const deskStructure = (S: StructureBuilder) => {
                                                 .child(
                                                     S.document()
                                                         .schemaType('skjonnsfastsettelseMal')
-                                                        .documentId('25ProsentEnArb'),
+                                                        .documentId('25ProsentEnArb')
+                                                        .initialValueTemplate(
+                                                            'skjonnsfastsettelse-template',
+                                                            {
+                                                                lovhjemmel: { ledd: '2' },
+                                                                arbeidsforholdMal: [
+                                                                    'EN_ARBEIDSGIVER',
+                                                                ],
+                                                            },
+                                                        ),
                                                 ),
                                             S.listItem()
                                                 .title('Flere arbeidsgivere')
                                                 .child(
                                                     S.document()
                                                         .schemaType('skjonnsfastsettelseMal')
-                                                        .documentId('25ProsentFlereArb'),
+                                                        .documentId('25ProsentFlereArb')
+                                                        .initialValueTemplate(
+                                                            'skjonnsfastsettelse-template',
+                                                            {
+                                                                lovhjemmel: { ledd: '2' },
+                                                                arbeidsforholdMal: [
+                                                                    'FLERE_ARBEIDSGIVERE',
+                                                                ],
+                                                            },
+                                                        ),
+                                                ),
+                                        ]),
+                                ),
+                            S.listItem()
+                                .title('Uriktig rapportering')
+                                .child(
+                                    S.list()
+                                        .title('Noe med tredje ledd')
+                                        .items([
+                                            S.listItem()
+                                                .title('hallo tredje ledd')
+                                                .child(
+                                                    S.document()
+                                                        .schemaType('skjonnsfastsettelseMal')
+                                                        .documentId('uriktigRapporteringBegge')
+                                                        .initialValueTemplate(
+                                                            'skjonnsfastsettelse-template',
+                                                            {
+                                                                lovhjemmel: { ledd: '3' },
+                                                                arbeidsforholdMal: [
+                                                                    'EN_ARBEIDSGIVER',
+                                                                    'FLERE_ARBEIDSGIVERE',
+                                                                ],
+                                                            },
+                                                        ),
                                                 ),
                                         ]),
                                 ),

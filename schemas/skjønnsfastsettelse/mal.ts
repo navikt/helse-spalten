@@ -4,6 +4,9 @@ export default defineType({
     name: 'skjonnsfastsettelseMal',
     title: 'Mal',
     type: 'document',
+    initialValue: (value) => ({
+        arbeidsforholdMal: value.arbeidsforholdMal,
+    }),
     fields: [
         defineField({
             name: 'begrunnelse',
@@ -16,6 +19,19 @@ export default defineType({
             title: 'Konklusjon',
             type: 'string',
             validation: (Rule) => Rule.required().error('Konklusjon kan ikke være tom'),
+        }),
+        defineField({
+            name: 'arbeidsforholdMal',
+            title: 'ArbeidsforholdMal',
+            type: 'array',
+            readOnly: true,
+            of: [{ type: 'string' }],
+        }),
+        defineField({
+            name: 'lovhjemmel',
+            title: 'Lovhjemmel',
+            type: 'lovhjemmel',
+            readOnly: true,
         }),
     ],
 })

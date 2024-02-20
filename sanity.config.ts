@@ -15,6 +15,23 @@ export default defineConfig({
 
     schema: {
         types: schemaTypes,
+        templates: (prev) => [
+            ...prev,
+            {
+                id: 'skjonnsfastsettelse-template',
+                title: 'Skjønnsfastsettelse template',
+                schemaType: 'skjonnsfastsettelseMal',
+                value: {
+                    lovhjemmel: {
+                        paragraf: '8-30',
+                        ledd: '',
+                        lovverk: 'folketrygdloven',
+                        lovverksversjon: '2019-01-01',
+                    },
+                    arbeidsforholdMal: ['EN_ARBEIDSGIVER', 'FLERE_ARBEIDSGIVERE'],
+                },
+            },
+        ],
     },
     auth: createAuthStore({
         projectId: 'z9kr8ddn',

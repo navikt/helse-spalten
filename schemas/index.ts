@@ -4,7 +4,8 @@ import driftsmelding from './driftsmeldinger/driftsmelding'
 import subdomene from './varsler/subdomene'
 import kontekst from './varsler/kontekst'
 import varsel from './varsler/varsel'
-import skjønnsfastsettelseMal from './skjønnsfastsettelse/mal'
+import skjonnsfastsettelseMal from './skjønnsfastsettelse/mal'
+import lovhjemmel from './skjønnsfastsettelse/lovhjemmel'
 
 export const schemaTypes = [
     nyhet,
@@ -13,5 +14,6 @@ export const schemaTypes = [
     subdomene,
     kontekst,
     varsel,
-    skjønnsfastsettelseMal,
+    skjonnsfastsettelseMal,
+    lovhjemmel,
 ]
