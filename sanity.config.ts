@@ -21,15 +21,15 @@ export default defineConfig({
                 id: 'skjonnsfastsettelse-template',
                 title: 'Skjønnsfastsettelse template',
                 schemaType: 'skjonnsfastsettelseMal',
-                value: {
+                value: (params: any) => ({
                     lovhjemmel: {
-                        paragraf: '8-30',
-                        ledd: '',
-                        lovverk: 'folketrygdloven',
-                        lovverksversjon: '2019-01-01',
+                        paragraf: params?.lovhjemmel?.paragraf ?? '8-30',
+                        ledd: params.lovhjemmel?.ledd,
+                        lovverk: params?.lovhjemmel?.lovverk ?? 'folketrygdloven',
+                        lovverksversjon: params?.lovhjemmel?.lovverksversjon ?? '2019-01-01',
                     },
-                    arbeidsforholdMal: ['EN_ARBEIDSGIVER', 'FLERE_ARBEIDSGIVERE'],
-                },
+                    arbeidsforholdMal: params.arbeidsforholdMal,
+                }),
             },
         ],
     },

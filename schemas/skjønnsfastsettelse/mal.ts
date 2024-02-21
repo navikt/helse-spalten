@@ -6,8 +6,21 @@ export default defineType({
     type: 'document',
     initialValue: (value) => ({
         arbeidsforholdMal: value.arbeidsforholdMal,
+        iProd: false,
     }),
     fields: [
+        defineField({
+            name: 'iProd',
+            title: 'På i prod?',
+            type: 'boolean',
+            description: 'Skal malen vises i prod?',
+        }),
+        defineField({
+            name: 'arsak',
+            title: 'Årsak',
+            type: 'string',
+            validation: (Rule) => Rule.required().error('Årsak kan ikke være tom'),
+        }),
         defineField({
             name: 'begrunnelse',
             title: 'Begrunnelse',
@@ -24,14 +37,27 @@ export default defineType({
             name: 'arbeidsforholdMal',
             title: 'ArbeidsforholdMal',
             type: 'array',
-            readOnly: true,
+            options: {
+                list: [
+                    { title: 'En arbeidsgiver', value: 'EN_ARBEIDSGIVER' },
+                    { title: 'Flere arbeidsgivere', value: 'FLERE_ARBEIDSGIVERE' },
+                ],
+            },
+            readOnly: ({ parent }) => {
+                return (
+                    (parent?.arbeidsforholdMal?.length ?? 0) > 0 &&
+                    (parent.arbeidsforholdMal.includes('EN_ARBEIDSGIVER') ||
+                        parent.arbeidsforholdMal.includes('FLERE_ARBEIDSGIVERE'))
+                )
+            },
             of: [{ type: 'string' }],
+            validation: (Rule) => Rule.required().error('arbeidsforholdMal kan ikke være tom'),
         }),
         defineField({
             name: 'lovhjemmel',
             title: 'Lovhjemmel',
             type: 'lovhjemmel',
-            readOnly: true,
+            validation: (Rule) => Rule.required().error('lovhjemmel kan ikke være tom'),
         }),
     ],
 })
