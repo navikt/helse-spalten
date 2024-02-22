@@ -32,12 +32,10 @@ export const deskStructure = (S: StructureBuilder) => {
                         .title('Maler')
                         .items([
                             S.listItem()
-                                .title('25 % avvik')
+                                .title('§ 8-30 2. Avviksvurdering')
                                 .child(
                                     S.list()
-                                        .title(
-                                            'Antall arbeidsgivere (inntil vi kommer på noe smartere)',
-                                        )
+                                        .title('Antall arbeidsgivere')
                                         .items([
                                             S.listItem()
                                                 .title('En arbeidsgiver')
@@ -74,29 +72,18 @@ export const deskStructure = (S: StructureBuilder) => {
                                         ]),
                                 ),
                             S.listItem()
-                                .title('Uriktig rapportering')
+                                .title('§ 8-30 3. Uriktig rapportering')
                                 .child(
-                                    S.list()
-                                        .title('Noe med tredje ledd')
-                                        .items([
-                                            S.listItem()
-                                                .title('hallo tredje ledd')
-                                                .child(
-                                                    S.document()
-                                                        .schemaType('skjonnsfastsettelseMal')
-                                                        .documentId('uriktigRapporteringBegge')
-                                                        .initialValueTemplate(
-                                                            'skjonnsfastsettelse-template',
-                                                            {
-                                                                lovhjemmel: { ledd: '3' },
-                                                                arbeidsforholdMal: [
-                                                                    'EN_ARBEIDSGIVER',
-                                                                    'FLERE_ARBEIDSGIVERE',
-                                                                ],
-                                                            },
-                                                        ),
-                                                ),
-                                        ]),
+                                    S.document()
+                                        .schemaType('skjonnsfastsettelseMal')
+                                        .documentId('uriktigRapporteringBegge')
+                                        .initialValueTemplate('skjonnsfastsettelse-template', {
+                                            lovhjemmel: { ledd: '3' },
+                                            arbeidsforholdMal: [
+                                                'EN_ARBEIDSGIVER',
+                                                'FLERE_ARBEIDSGIVERE',
+                                            ],
+                                        }),
                                 ),
                         ]),
                 ),
