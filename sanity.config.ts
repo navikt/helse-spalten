@@ -1,4 +1,4 @@
-import { createAuthStore, defineConfig } from 'sanity'
+import { createAuthStore, defineConfig, DocumentActionsContext } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
@@ -32,6 +32,15 @@ export default defineConfig({
                 }),
             },
         ],
+    },
+    document: {
+        actions: (prev: any, context: DocumentActionsContext) => {
+            return context.schemaType === 'skjonnsfastsettelseMal'
+                ? prev.filter(
+                      (obj: any) => obj.action === 'publish' || obj.action === 'discardChanges',
+                  )
+                : prev
+        },
     },
     auth: createAuthStore({
         projectId: 'z9kr8ddn',
