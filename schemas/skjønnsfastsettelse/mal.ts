@@ -25,12 +25,15 @@ export default defineType({
             name: 'begrunnelse',
             title: 'Begrunnelse',
             type: 'text',
+            description:
+                'Mulige Variabler: ${omregnetÅrsinntekt}, ${omregnetMånedsinntekt}, ${sammenligningsgrunnlag}',
             validation: (Rule) => Rule.required().error('Begrunnelse kan ikke være tom'),
         }),
         defineField({
             name: 'konklusjon',
             title: 'Konklusjon',
             type: 'string',
+            description: 'Mulige Variabler: ${skjønnsfastsattÅrsinntekt}',
             validation: (Rule) => Rule.required().error('Konklusjon kan ikke være tom'),
         }),
         defineField({
