@@ -25,65 +25,87 @@ export const deskStructure = (S: StructureBuilder) => {
                         ]),
                 ),
             S.listItem()
-                .title('Skjønnsfastsettelse')
-                .icon(InformationSquareIcon)
+                .title('Vedtaksmaler')
                 .child(
                     S.list()
-                        .title('Maler')
+                        .title('Vedtaksmaler')
                         .items([
                             S.listItem()
-                                .title('§ 8-30 2. Avviksvurdering')
+                                .title('Skjønnsfastsettelse')
                                 .child(
                                     S.list()
-                                        .title('Antall arbeidsgivere')
+                                        .title('Maler')
                                         .items([
                                             S.listItem()
-                                                .title('En arbeidsgiver')
+                                                .title('§ 8-30 2. Avviksvurdering')
                                                 .child(
-                                                    S.document()
-                                                        .schemaType('skjonnsfastsettelseMal')
-                                                        .documentId('25ProsentEnArb')
-                                                        .initialValueTemplate(
-                                                            'skjonnsfastsettelse-template',
-                                                            {
-                                                                lovhjemmel: { ledd: '2' },
-                                                                arbeidsforholdMal: [
-                                                                    'EN_ARBEIDSGIVER',
-                                                                ],
-                                                            },
-                                                        ),
+                                                    S.list()
+                                                        .title('Antall arbeidsgivere')
+                                                        .items([
+                                                            S.listItem()
+                                                                .title('En arbeidsgiver')
+                                                                .child(
+                                                                    S.document()
+                                                                        .schemaType(
+                                                                            'skjonnsfastsettelseMal',
+                                                                        )
+                                                                        .documentId(
+                                                                            '25ProsentEnArb',
+                                                                        )
+                                                                        .initialValueTemplate(
+                                                                            'skjonnsfastsettelse-template',
+                                                                            {
+                                                                                lovhjemmel: {
+                                                                                    ledd: '2',
+                                                                                },
+                                                                                arbeidsforholdMal: [
+                                                                                    'EN_ARBEIDSGIVER',
+                                                                                ],
+                                                                            },
+                                                                        ),
+                                                                ),
+                                                            S.listItem()
+                                                                .title('Flere arbeidsgivere')
+                                                                .child(
+                                                                    S.document()
+                                                                        .schemaType(
+                                                                            'skjonnsfastsettelseMal',
+                                                                        )
+                                                                        .documentId(
+                                                                            '25ProsentFlereArb',
+                                                                        )
+                                                                        .initialValueTemplate(
+                                                                            'skjonnsfastsettelse-template',
+                                                                            {
+                                                                                lovhjemmel: {
+                                                                                    ledd: '2',
+                                                                                },
+                                                                                arbeidsforholdMal: [
+                                                                                    'FLERE_ARBEIDSGIVERE',
+                                                                                ],
+                                                                            },
+                                                                        ),
+                                                                ),
+                                                        ]),
                                                 ),
                                             S.listItem()
-                                                .title('Flere arbeidsgivere')
+                                                .title('§ 8-30 3. Uriktig rapportering')
                                                 .child(
                                                     S.document()
                                                         .schemaType('skjonnsfastsettelseMal')
-                                                        .documentId('25ProsentFlereArb')
+                                                        .documentId('uriktigRapporteringBegge')
                                                         .initialValueTemplate(
                                                             'skjonnsfastsettelse-template',
                                                             {
-                                                                lovhjemmel: { ledd: '2' },
+                                                                lovhjemmel: { ledd: '3' },
                                                                 arbeidsforholdMal: [
+                                                                    'EN_ARBEIDSGIVER',
                                                                     'FLERE_ARBEIDSGIVERE',
                                                                 ],
                                                             },
                                                         ),
                                                 ),
                                         ]),
-                                ),
-                            S.listItem()
-                                .title('§ 8-30 3. Uriktig rapportering')
-                                .child(
-                                    S.document()
-                                        .schemaType('skjonnsfastsettelseMal')
-                                        .documentId('uriktigRapporteringBegge')
-                                        .initialValueTemplate('skjonnsfastsettelse-template', {
-                                            lovhjemmel: { ledd: '3' },
-                                            arbeidsforholdMal: [
-                                                'EN_ARBEIDSGIVER',
-                                                'FLERE_ARBEIDSGIVERE',
-                                            ],
-                                        }),
                                 ),
                         ]),
                 ),
