@@ -3,10 +3,14 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { deskStructure } from './deskStructure'
+const { theme } = (await import('https://themer.sanity.build/api/hues?preset=pixel-art')) as {
+    theme: import('sanity').StudioTheme
+}
 
 export default defineConfig({
     name: 'default',
     title: 'Spalten',
+    theme,
 
     projectId: 'z9kr8ddn',
     dataset: 'production',
