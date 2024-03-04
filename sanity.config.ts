@@ -3,9 +3,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { deskStructure } from './deskStructure'
-const { theme } = (await import('https://themer.sanity.build/api/hues?preset=pixel-art')) as {
-    theme: import('sanity').StudioTheme
-}
+import { theme } from 'https://themer.sanity.build/api/hues?preset=pixel-art&default=9b4b75;600;lightest:fff0fe;darkest:291929&primary=darkest:352230&transparent=9d537a;600;darkest:2e1f29'
 
 export default defineConfig({
     name: 'default',
