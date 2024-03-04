@@ -6,3 +6,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+span[data-ui="Switch"] > #iProd[value="true"] + span > span:first-of-type {
+    background-color: seagreen !important;
+}
+span[data-ui="Switch"] > #iProd[value="false"] + span > span:first-of-type {
+    background-color: darkred !important;
+}
