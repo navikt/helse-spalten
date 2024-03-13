@@ -35,21 +35,23 @@ jobs:
         run: yarn build
 
 #      - name: Deploy dev
-#        uses: navikt/frontend/actions/spa-deploy/v1@main
+#        uses: navikt/frontend/actions/spa-deploy/v2@main
 #        with:
-#          app-name: helse-spalten
-#          team-name: tbd
+#          app: helse-spalten
+#          team: tbd
 #          source: ./dist
 #          ingress: https://spalten.intern.dev.nav.no
 #          environment: dev
-#          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+#          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+#          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
 
       - name: Deploy prod
-        uses: navikt/frontend/actions/spa-deploy/v1@main
+        uses: navikt/frontend/actions/spa-deploy/v2@main
         with:
-          app-name: helse-spalten
-          team-name: tbd
+          app: helse-spalten
+          team: tbd
           source: ./dist
           ingress: https://spalten.intern.nav.no
           environment: prod
-          nais-deploy-apikey: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
