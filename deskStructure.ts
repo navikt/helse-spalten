@@ -107,6 +107,10 @@ export const deskStructure = (S: StructureBuilder) => {
                                                 ),
                                         ]),
                                 ),
+
+                            S.listItem()
+                                .title('Avslag')
+                                .child(S.documentTypeList('avslag').title('Avslag')),
                         ]),
                 ),
         ])
