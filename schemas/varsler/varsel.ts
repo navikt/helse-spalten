@@ -8,6 +8,14 @@ export default defineType({
     icon: TabsIcon,
     fields: [
         defineField({
+            name: 'iProduksjon',
+            title: 'Tilgjengelig i prod',
+            type: 'boolean',
+            description:
+                'Når denne er på vil varseldefinisjonen være tilgjengelig for saksbehandlerene i produksjonsmiljøet',
+            initialValue: false,
+        }),
+        defineField({
             name: 'tittel',
             title: 'Tittel',
             type: 'string',
@@ -45,7 +53,6 @@ export default defineType({
                     `${(doc.subdomene as Subdomene)._ref}_${(doc.kontekst as Kontekst)._ref}`,
                 slugify: async (source, schemaType, context) => {
                     const [subdomene, kontekst] = source.split('_')
-                    console.log(source)
                     const { getClient } = context
                     const client = getClient({ apiVersion: '2022-12-07' })
                     return await getVarselkode(client, subdomene, kontekst)
