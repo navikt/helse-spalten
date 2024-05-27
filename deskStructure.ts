@@ -1,5 +1,9 @@
 import { StructureBuilder } from 'sanity/structure'
-import { InformationSquareIcon, NewspaperIcon } from '@navikt/aksel-icons'
+import {
+    ExclamationmarkTriangleIcon,
+    InformationSquareIcon,
+    NewspaperIcon,
+} from '@navikt/aksel-icons'
 
 export const deskStructure = (S: StructureBuilder) => {
     return S.list()
@@ -15,13 +19,35 @@ export const deskStructure = (S: StructureBuilder) => {
                 .child(S.documentTypeList('driftsmelding').title('Driftsmeldinger')),
             S.listItem()
                 .title('Varsler')
+                .icon(ExclamationmarkTriangleIcon)
                 .child(
                     S.list()
                         .title('Varsler')
                         .items([
                             S.listItem().title('Subdomener').child(S.documentTypeList('subdomene')),
                             S.listItem().title('Kontekster').child(S.documentTypeList('kontekst')),
-                            S.listItem().title('Varsler').child(S.documentTypeList('varsel')),
+                            S.listItem()
+                                .title('Varsler')
+                                .child(
+                                    S.list()
+                                        .title('Varsler')
+                                        .items([
+                                            S.listItem()
+                                                .title('Aktive varsler')
+                                                .child(
+                                                    S.documentTypeList('varsel')
+                                                        .filter('avviklet == false')
+                                                        .showIcons(false),
+                                                ),
+                                            S.listItem()
+                                                .title('Avviklede varsler')
+                                                .child(
+                                                    S.documentTypeList('varsel')
+                                                        .filter('avviklet == true')
+                                                        .showIcons(false),
+                                                ),
+                                        ]),
+                                ),
                         ]),
                 ),
             S.listItem()

@@ -1,11 +1,9 @@
 import { defineField, defineType, SanityClient } from 'sanity'
-import { TabsIcon } from '@navikt/aksel-icons'
 
 export default defineType({
     name: 'varsel',
     title: 'Varsel',
     type: 'document',
-    icon: TabsIcon,
     fields: [
         defineField({
             name: 'iProduksjon',
@@ -46,7 +44,7 @@ export default defineType({
             name: 'varselkode',
             title: 'Varselkode',
             type: 'slug',
-            readOnly: false,
+            readOnly: true,
             hidden: ({ document }) => !document?.subdomene && !document?.kontekst,
             options: {
                 source: (doc) =>
@@ -60,13 +58,15 @@ export default defineType({
             },
         }),
         defineField({
-            name: 'beskrivelse',
-            title: 'Beskrivelse',
+            name: 'forklaring',
+            title: 'Hva betyr det?',
+            description: 'Hva er grunnen til at varselet forekommer',
             type: 'text',
         }),
         defineField({
-            name: 'forklaring',
-            title: 'Forklaring',
+            name: 'handling',
+            title: 'Hva gjør du?',
+            description: 'Hva skal saksbehandler gjøre når dette varselet dukker opp',
             type: 'text',
         }),
     ],

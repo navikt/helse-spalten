@@ -1,16 +1,14 @@
-import {defineField, defineType} from "sanity";
-import {TabsIcon} from "@navikt/aksel-icons";
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
     name: 'nyhet',
     title: 'Nyhet',
     type: 'document',
-    icon: TabsIcon,
     fields: [
         defineField({
             name: 'tittel',
             title: 'Tittel',
-            type: 'string'
+            type: 'string',
         }),
         defineField({
             name: 'slides',
@@ -18,9 +16,9 @@ export default defineType({
             type: 'array',
             of: [
                 {
-                    type: 'nyhetsslide'
-                }
-            ]
-        })
+                    type: 'nyhetsslide',
+                },
+            ],
+        }),
     ],
 })
