@@ -4,6 +4,7 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { deskStructure } from './deskStructure'
 import { theme } from 'https://themer.sanity.build/api/hues?preset=pixel-art&default=9b4b75;600;lightest:fff0fe;darkest:291929&primary=darkest:352230&transparent=9d537a;600;darkest:2e1f29'
+import { tags } from 'sanity-plugin-tags'
 
 export default defineConfig({
     name: 'default',
@@ -13,7 +14,7 @@ export default defineConfig({
     projectId: 'z9kr8ddn',
     dataset: 'production',
 
-    plugins: [structureTool({ structure: deskStructure }), visionTool()],
+    plugins: [structureTool({ structure: deskStructure }), visionTool(), tags({})],
 
     schema: {
         types: schemaTypes,

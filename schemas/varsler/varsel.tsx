@@ -27,6 +27,19 @@ export default defineType({
             initialValue: false,
         }),
         defineField({
+            name: 'tags',
+            title: 'Tags',
+            type: 'tags',
+            description: 'Tags vises ikke til saksbehandler',
+            options: {
+                allowCreate: true,
+                reactSelectOptions: {
+                    placeholder: 'Velg...',
+                    noOptionsMessage: () => 'Ingen tags',
+                },
+            },
+        }),
+        defineField({
             name: 'subdomene',
             title: 'Subdomene',
             type: 'reference',
