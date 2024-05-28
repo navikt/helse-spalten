@@ -3,7 +3,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { deskStructure } from './deskStructure'
-import { theme } from 'https://themer.sanity.build/api/hues?preset=pixel-art&default=9b4b75;600;lightest:fff0fe;darkest:291929&primary=darkest:352230&transparent=9d537a;600;darkest:2e1f29'
+import { theme } from 'https://themer.sanity.build/api/hues?preset=stereofidelic&default=6ca86b;lightest:ebffec;darkest:223f3a&primary=ffbb5c;darkest:0e1510&transparent=699966'
 import { tags } from 'sanity-plugin-tags'
 
 export default defineConfig({
