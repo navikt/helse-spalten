@@ -1,4 +1,5 @@
 import { defineField, defineType, SanityClient } from 'sanity'
+import VarselkodeInput from '../../components/Varselkode'
 
 export default defineType({
     name: 'varsel',
@@ -43,19 +44,9 @@ export default defineType({
         defineField({
             name: 'varselkode',
             title: 'Varselkode',
-            type: 'slug',
-            readOnly: true,
-            hidden: ({ document }) => !document?.subdomene && !document?.kontekst,
-            options: {
-                source: (doc) =>
-                    `${(doc.subdomene as Subdomene)._ref}_${(doc.kontekst as Kontekst)._ref}`,
-                slugify: async (source, schemaType, context) => {
-                    const [subdomene, kontekst] = source.split('_')
-                    const { getClient } = context
-                    const client = getClient({ apiVersion: '2022-12-07' })
-                    return await getVarselkode(client, subdomene, kontekst)
-                },
-            },
+            type: 'string',
+            hidden: ({ document }) => !document?.subdomene || !document?.kontekst,
+            components: { input: VarselkodeInput },
         }),
         defineField({
             name: 'forklaring',
@@ -73,7 +64,7 @@ export default defineType({
     preview: {
         select: {
             tittel: 'tittel',
-            varselkode: 'varselkode.current',
+            varselkode: 'varselkode',
             avviklet: 'avviklet',
         },
         prepare(selection) {
@@ -85,64 +76,3 @@ export default defineType({
         },
     },
 })
-
-const getVarselkoder = async (
-    client: SanityClient,
-    subdomene: string,
-    kontekst: string,
-): Promise<Varselkode[]> => {
-    const query = `*[_type=="varsel" && subdomene._ref == $subdomene && kontekst._ref == $kontekst]{'varselkode': varselkode.current, 'kontekst': kontekst->forkortelse, 'subdomene': subdomene->forkortelse}`
-    return client
-        .fetch(query, { subdomene: subdomene, kontekst: kontekst }, { perspective: 'published' })
-        .then((it: Varsel[]) =>
-            it.map((it) => ({
-                subdomene: it.subdomene,
-                kontekst: it.kontekst,
-                nummer: Number(it.varselkode.split('_')[2]),
-            })),
-        )
-}
-
-const getVarselkode = async (
-    client: SanityClient,
-    subdomene: string,
-    kontekst: string,
-): Promise<string> => {
-    const varselkoder = await getVarselkoder(client, subdomene, kontekst)
-    if (varselkoder.length > 0)
-        return `${varselkoder[0].subdomene}_${varselkoder[0].kontekst}_${
-            Math.max(...varselkoder.map((it) => it.nummer)) + 1
-        }`
-
-    const getSubdomeneQuery = `*[_type=='subdomene' && _id==$subdomene]{forkortelse}[0]`
-    const getKontekstQuery = `*[_type=='kontekst' && _id==$kontekst]{forkortelse}[0]`
-
-    const subdomeneForkortelse = await client
-        .fetch(getSubdomeneQuery, { subdomene: subdomene })
-        .then((it) => it.forkortelse as string)
-    const kontekstForkortelse = await client
-        .fetch(getKontekstQuery, { kontekst: kontekst })
-        .then((it) => it.forkortelse as string)
-
-    return `${subdomeneForkortelse}_${kontekstForkortelse}_1`
-}
-
-interface Varselkode {
-    subdomene: string
-    kontekst: string
-    nummer: number
-}
-
-interface Varsel {
-    varselkode: string
-    kontekst: string
-    subdomene: string
-}
-
-interface Subdomene {
-    _ref: string
-}
-
-interface Kontekst {
-    _ref: string
-}
