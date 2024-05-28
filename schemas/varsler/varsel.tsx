@@ -53,12 +53,22 @@ export default defineType({
             title: 'Hva betyr det?',
             description: 'Hva er grunnen til at varselet forekommer',
             type: 'text',
+            options: {
+                search: {
+                    weight: 1,
+                },
+            },
         }),
         defineField({
             name: 'handling',
             title: 'Hva gjør du?',
             description: 'Hva skal saksbehandler gjøre når dette varselet dukker opp',
             type: 'text',
+            options: {
+                search: {
+                    weight: 1,
+                },
+            },
         }),
     ],
     preview: {
