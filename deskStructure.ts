@@ -117,19 +117,54 @@ export const deskStructure = (S: StructureBuilder) => {
                                             S.listItem()
                                                 .title('§ 8-30 3. Uriktig rapportering')
                                                 .child(
-                                                    S.document()
-                                                        .schemaType('skjonnsfastsettelseMal')
-                                                        .documentId('uriktigRapporteringBegge')
-                                                        .initialValueTemplate(
-                                                            'skjonnsfastsettelse-template',
-                                                            {
-                                                                lovhjemmel: { ledd: '3' },
-                                                                arbeidsforholdMal: [
-                                                                    'EN_ARBEIDSGIVER',
-                                                                    'FLERE_ARBEIDSGIVERE',
-                                                                ],
-                                                            },
-                                                        ),
+                                                    S.list()
+                                                        .title('Antall arbeidsgivere')
+                                                        .items([
+                                                            S.listItem()
+                                                                .title('En arbeidsgiver')
+                                                                .child(
+                                                                    S.document()
+                                                                        .schemaType(
+                                                                            'skjonnsfastsettelseMal',
+                                                                        )
+                                                                        .documentId(
+                                                                            'uriktigRapporteringEnArb',
+                                                                        )
+                                                                        .initialValueTemplate(
+                                                                            'skjonnsfastsettelse-template',
+                                                                            {
+                                                                                lovhjemmel: {
+                                                                                    ledd: '3',
+                                                                                },
+                                                                                arbeidsforholdMal: [
+                                                                                    'EN_ARBEIDSGIVER',
+                                                                                ],
+                                                                            },
+                                                                        ),
+                                                                ),
+                                                            S.listItem()
+                                                                .title('Flere arbeidsgivere')
+                                                                .child(
+                                                                    S.document()
+                                                                        .schemaType(
+                                                                            'skjonnsfastsettelseMal',
+                                                                        )
+                                                                        .documentId(
+                                                                            'uriktigRapporteringFlereArb',
+                                                                        )
+                                                                        .initialValueTemplate(
+                                                                            'skjonnsfastsettelse-template',
+                                                                            {
+                                                                                lovhjemmel: {
+                                                                                    ledd: '3',
+                                                                                },
+                                                                                arbeidsforholdMal: [
+                                                                                    'FLERE_ARBEIDSGIVERE',
+                                                                                ],
+                                                                            },
+                                                                        ),
+                                                                ),
+                                                        ]),
                                                 ),
                                         ]),
                                 ),
