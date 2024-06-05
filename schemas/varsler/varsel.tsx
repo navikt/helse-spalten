@@ -1,4 +1,4 @@
-import { defineField, defineType, SanityClient } from 'sanity'
+import { defineField, defineType, TextInput, TextInputProps } from 'sanity'
 import VarselkodeInput from '../../components/Varselkode'
 
 export default defineType({
@@ -65,10 +65,16 @@ export default defineType({
             name: 'forklaring',
             title: 'Hva betyr det?',
             description: 'Hva er grunnen til at varselet forekommer',
-            type: 'text',
+            type: 'string',
+            components: {
+                // Sanity har en bug som gjør at søk i text-typer ikke fungerer. Dette er en
+                // workaround inntil buggen er fikset.
+                // Dette gjør at string-typen rendres og kan brukes som en text-type
+                input: (props: TextInputProps) => TextInput(props),
+            },
             options: {
                 search: {
-                    weight: 1,
+                    weight: 10,
                 },
             },
         }),
@@ -76,10 +82,16 @@ export default defineType({
             name: 'handling',
             title: 'Hva gjør du?',
             description: 'Hva skal saksbehandler gjøre når dette varselet dukker opp',
-            type: 'text',
+            type: 'string',
+            components: {
+                // Sanity har en bug som gjør at søk i text-typer ikke fungerer. Dette er en
+                // workaround inntil buggen er fikset.
+                // Dette gjør at string-typen rendres og kan brukes som en text-type
+                input: (props: TextInputProps) => TextInput(props),
+            },
             options: {
                 search: {
-                    weight: 1,
+                    weight: 10,
                 },
             },
         }),
@@ -89,12 +101,13 @@ export default defineType({
             tittel: 'tittel',
             varselkode: 'varselkode',
             avviklet: 'avviklet',
+            iProd: 'iProduksjon',
         },
         prepare(selection) {
-            const { tittel, varselkode, avviklet } = selection
+            const { tittel, varselkode, avviklet, iProd } = selection
             return {
                 title: `${tittel}`,
-                subtitle: `${varselkode} ${avviklet ? '- avviklet' : ''}`,
+                subtitle: `${varselkode} ${avviklet ? '- avviklet' : iProd ? '- i prod' : '- kun i dev'}`,
             }
         },
     },
