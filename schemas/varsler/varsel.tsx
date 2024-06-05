@@ -1,4 +1,4 @@
-import { defineField, defineType, SanityClient } from 'sanity'
+import { defineField, defineType } from 'sanity'
 import VarselkodeInput from '../../components/Varselkode'
 
 export default defineType({
@@ -89,12 +89,13 @@ export default defineType({
             tittel: 'tittel',
             varselkode: 'varselkode',
             avviklet: 'avviklet',
+            iProd: 'iProduksjon',
         },
         prepare(selection) {
-            const { tittel, varselkode, avviklet } = selection
+            const { tittel, varselkode, avviklet, iProd } = selection
             return {
                 title: `${tittel}`,
-                subtitle: `${varselkode} ${avviklet ? '- avviklet' : ''}`,
+                subtitle: `${varselkode} ${avviklet ? '- avviklet' : iProd ? '- i prod' : '- kun i dev'}`,
             }
         },
     },
