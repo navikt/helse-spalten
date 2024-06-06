@@ -1,20 +1,20 @@
-import { Stack, Text, TextInput } from '@sanity/ui'
-import { InputProps, SanityClient, unset, set, useClient, useFormValue, FieldProps } from 'sanity'
-import React, { useCallback, useEffect, useState } from 'react'
+import {
+    ReferenceValue,
+    SanityClient,
+    set,
+    StringInputProps,
+    useClient,
+    useFormValue,
+} from 'sanity'
+import { useEffect } from 'react'
 
 interface Varseldefinisjon {
-    subdomene: {
-        _ref: string
-        _type: string
-    }
-    kontekst: {
-        _ref: string
-        _type: string
-    }
+    subdomene: ReferenceValue
+    kontekst: ReferenceValue
     varselkode: string | undefined
 }
-const VarselkodeInput = (props: InputProps) => {
-    const { onChange, elementProps, value } = props
+const VarselkodeInput = (props: StringInputProps) => {
+    const { onChange, renderDefault, value } = props
     const client = useClient({ apiVersion: '2022-12-07' })
     const definisjon = useFormValue([]) as Varseldefinisjon
     const subdomene = definisjon.subdomene
@@ -28,16 +28,7 @@ const VarselkodeInput = (props: InputProps) => {
         if (!value) get().then((it) => onChange(set(it)))
     }, [])
 
-    return (
-        <Stack space={3}>
-            <TextInput
-                {...elementProps}
-                size={1}
-                value={(value as string) ?? ''}
-                disabled={true}
-            ></TextInput>
-        </Stack>
-    )
+    return renderDefault(props)
 }
 
 interface Varselkode {

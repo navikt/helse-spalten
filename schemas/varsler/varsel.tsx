@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType, TextInput } from 'sanity'
 import VarselkodeInput from '../../components/Varselkode'
 
 export default defineType({
@@ -60,15 +60,17 @@ export default defineType({
             type: 'string',
             hidden: ({ document }) => !document?.subdomene || !document?.kontekst,
             components: { input: VarselkodeInput },
+            readOnly: true,
         }),
         defineField({
             name: 'forklaring',
             title: 'Hva betyr det?',
             description: 'Hva er grunnen til at varselet forekommer',
-            type: 'text',
+            type: 'string',
+            components: { input: TextInput },
             options: {
                 search: {
-                    weight: 1,
+                    weight: 10,
                 },
             },
         }),
@@ -76,10 +78,11 @@ export default defineType({
             name: 'handling',
             title: 'Hva gjør du?',
             description: 'Hva skal saksbehandler gjøre når dette varselet dukker opp',
-            type: 'text',
+            type: 'string',
+            components: { input: TextInput },
             options: {
                 search: {
-                    weight: 1,
+                    weight: 10,
                 },
             },
         }),
