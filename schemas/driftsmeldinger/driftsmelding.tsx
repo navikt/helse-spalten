@@ -1,5 +1,9 @@
-import {CheckmarkCircleFillIcon, ExclamationmarkTriangleFillIcon, XMarkOctagonFillIcon} from "@navikt/aksel-icons";
-import {defineField, defineType} from "sanity";
+import {
+    CheckmarkCircleFillIcon,
+    ExclamationmarkTriangleFillIcon,
+    XMarkOctagonFillIcon,
+} from '@navikt/aksel-icons'
+import { defineField, defineType } from 'sanity'
 import '../../styles/globals.css'
 
 export default defineType({
@@ -8,6 +12,13 @@ export default defineType({
     type: 'document',
     fields: [
         defineField({
+            name: 'iProdDrift',
+            title: 'Synlig i prod',
+            type: 'boolean',
+            description:
+                'Når denne er på vil driftsmeldingen være synlig for saksbehandlerene i prod',
+        }),
+        defineField({
             name: 'level',
             title: 'Nivå',
             type: 'string',
@@ -15,31 +26,33 @@ export default defineType({
                 direction: 'horizontal',
                 layout: 'radio',
                 list: [
-                    {title: 'Grønn', value: 'grønn'},
-                    {title: 'Gul', value: 'gul'},
-                    {title: 'Rød', value: 'rød'},
-                ]
-            }
+                    { title: 'Info (blå)', value: 'info' },
+                    { title: 'Warning (gul)', value: 'warning' },
+                    { title: 'Error (rød)', value: 'error' },
+                ],
+            },
         }),
         defineField({
             name: 'tittel',
             title: 'Tittel',
-            type: 'string'
+            type: 'string',
+            description: 'Tittel på driftsmeldingen',
+            validation: (Rule) => Rule.required().error('Tittel kan ikke være tom'),
         }),
         defineField({
-            name: 'eta',
-            title: 'Forventet feilrettet innen',
+            name: 'melding',
+            title: 'Melding',
+            type: 'text',
+            description:
+                'Mer utdypende om driftsmeldingen. Husk å skriv når det er forventet at problemet er løst.',
+            validation: (Rule) => Rule.required().error('Melding kan ikke være tom'),
+        }),
+        defineField({
+            name: 'opprettet',
+            title: 'Driftsmelding opprettet',
             type: 'datetime',
-            validation: Rule => Rule.min(new Date().toISOString()).error('Du må oppgi et fremtidig tidspunkt')
-        }),
-        defineField({
-            name: 'beskrivelse',
-            title: 'Beskrivelse',
-            type: 'array',
-            of: [
-                {type: 'block'},
-                {type: 'image'}
-            ]
+            initialValue: () => new Date().toISOString(),
+            validation: (Rule) => Rule.required().error('Dato og tid kan ikke være tom'),
         }),
     ],
     preview: {
@@ -48,17 +61,18 @@ export default defineType({
             level: 'level',
         },
         prepare(selection) {
-            const {level} = selection
+            const { level } = selection
             return {
                 ...selection,
                 subtitle: `Nivå: ${level}`,
-                media: level === 'grønn' ? (
-                    <CheckmarkCircleFillIcon className={'text-green-300'}/>
-                ) : level === 'gul' ? (
-                    <ExclamationmarkTriangleFillIcon className={'text-orange-300'}/>
-                ) : (
-                    <XMarkOctagonFillIcon className={'text-red-300'}/>
-                )
+                media:
+                    level === 'grønn' ? (
+                        <CheckmarkCircleFillIcon className={'text-green-300'} />
+                    ) : level === 'gul' ? (
+                        <ExclamationmarkTriangleFillIcon className={'text-orange-300'} />
+                    ) : (
+                        <XMarkOctagonFillIcon className={'text-red-300'} />
+                    ),
             }
         },
     },
