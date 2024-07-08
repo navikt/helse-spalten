@@ -12,11 +12,17 @@ export default defineType({
     type: 'document',
     fields: [
         defineField({
-            name: 'iProdDrift',
+            name: 'iProd',
             title: 'Synlig i prod',
             type: 'boolean',
             description:
-                'Når denne er på vil driftsmeldingen være synlig for saksbehandlerene i prod',
+                'Når denne er på vil driftsmeldingen være synlig for saksbehandlerne i prod',
+        }),
+        defineField({
+            name: 'solved',
+            title: 'Er problemet løst?',
+            type: 'boolean',
+            description: 'Når denne er på vil driftsmeldingen vises som løst for saksbehandlerne',
         }),
         defineField({
             name: 'level',
@@ -26,9 +32,9 @@ export default defineType({
                 direction: 'horizontal',
                 layout: 'radio',
                 list: [
-                    { title: 'Info (blå)', value: 'info' },
-                    { title: 'Warning (gul)', value: 'warning' },
-                    { title: 'Error (rød)', value: 'error' },
+                    { title: 'Info', value: 'info' },
+                    { title: 'Hendelse', value: 'warning' },
+                    { title: 'Alvorlig hendelse', value: 'error' },
                 ],
             },
         }),

@@ -14,7 +14,7 @@ export default defineType({
             name: 'iProd',
             title: 'Tilgjengelig i prod',
             type: 'boolean',
-            description: 'Når denne er på vil malen være tilgjengelig for saksbehandlerene i prod',
+            description: 'Når denne er på vil malen være tilgjengelig for saksbehandlerne i prod',
         }),
         defineField({
             name: 'arsak',
