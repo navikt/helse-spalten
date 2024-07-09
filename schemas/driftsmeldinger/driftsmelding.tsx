@@ -13,16 +13,17 @@ export default defineType({
     fields: [
         defineField({
             name: 'iProd',
-            title: 'Synlig i prod',
+            title: 'Synlig i prod?',
             type: 'boolean',
             description:
                 'Når denne er på vil driftsmeldingen være synlig for saksbehandlerne i prod',
         }),
         defineField({
             name: 'solved',
-            title: 'Er problemet løst?',
+            title: 'Fjerne fra utviklingsmiljø?',
             type: 'boolean',
-            description: 'Når denne er på vil driftsmeldingen vises som løst for saksbehandlerne',
+            description:
+                'Når denne er på vil driftsmeldingen fjernes fra utviklingsmiljøet for utviklerene',
         }),
         defineField({
             name: 'level',
