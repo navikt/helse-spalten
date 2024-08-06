@@ -38,7 +38,7 @@ export default defineConfig({
     },
     document: {
         actions: (prev: any, context: DocumentActionsContext) => {
-            return context.schemaType === 'skjonnsfastsettelseMal'
+            return context.schemaType === 'skjonnsfastsettelseMal' || context.schemaType === 'arsaker'
                 ? prev.filter(
                       (obj: any) => obj.action === 'publish' || obj.action === 'discardChanges',
                   )

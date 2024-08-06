@@ -7,6 +7,7 @@ import varsel from './varsler/varsel'
 import skjonnsfastsettelseMal from './skjønnsfastsettelse/mal'
 import lovhjemmel from './skjønnsfastsettelse/lovhjemmel'
 import avslag from './avslag/mal'
+import årsaker from './årsaker/årsaker'
 
 export const schemaTypes = [
     nyhet,
@@ -18,4 +19,5 @@ export const schemaTypes = [
     skjonnsfastsettelseMal,
     lovhjemmel,
     avslag,
+    årsaker
 ]

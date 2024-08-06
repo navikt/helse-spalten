@@ -172,5 +172,21 @@ export const deskStructure = (S: StructureBuilder) => {
                             S.listItem().title('Avslag').child(S.documentTypeList('avslag')),
                         ]),
                 ),
+            S.listItem().title('Årsaker').child(
+                S.list().title('Årsaker').items([
+                    S.listItem()
+                        .title('Annullering')
+                        .child(
+                            S.document()
+                                .schemaType(
+                                    'arsaker',
+                                )
+                                .documentId(
+                                    'annulleringsarsaker',
+                                )
+                                .title('Annulleringårsaker')
+                        )
+                    ])
+            )
         ])
 }
