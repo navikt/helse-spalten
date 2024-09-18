@@ -3,7 +3,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { deskStructure } from './deskStructure'
-import { theme } from 'https://themer.sanity.build/api/hues?preset=stereofidelic&default=6ca86b;lightest:ebffec;darkest:223f3a&primary=ffbb5c;darkest:0e1510&transparent=699966'
+import { theme } from 'https://themer.sanity.build/api/hues?preset=stereofidelic&default=d67a3d;lightest:efdfcc;darkest:523d2e&primary=d1661f;darkest:533d2e&transparent=d1661f'
 import { tags } from 'sanity-plugin-tags'
 
 export default defineConfig({
@@ -38,7 +38,8 @@ export default defineConfig({
     },
     document: {
         actions: (prev: any, context: DocumentActionsContext) => {
-            return context.schemaType === 'skjonnsfastsettelseMal' || context.schemaType === 'arsaker'
+            return context.schemaType === 'skjonnsfastsettelseMal' ||
+                context.schemaType === 'arsaker'
                 ? prev.filter(
                       (obj: any) => obj.action === 'publish' || obj.action === 'discardChanges',
                   )
