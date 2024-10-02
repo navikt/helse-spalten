@@ -36,14 +36,16 @@ export default defineType({
                     { title: 'Info', value: 'info' },
                     { title: 'Hendelse', value: 'warning' },
                     { title: 'Alvorlig hendelse', value: 'error' },
+                    { title: 'Hendelse løst', value: 'success' },
                 ],
             },
+            validation: (Rule) => Rule.required().error('Level kan ikke være tom'),
         }),
         defineField({
             name: 'tittel',
             title: 'Tittel',
             type: 'string',
-            description: 'Tittel på driftsmeldingen',
+            description: 'Eksempel: Driftsforstyrrelse i Speil',
             validation: (Rule) => Rule.required().error('Tittel kan ikke være tom'),
         }),
         defineField({
