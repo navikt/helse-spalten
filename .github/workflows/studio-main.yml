@@ -35,7 +35,7 @@ jobs:
         run: yarn build
 
 #      - name: Deploy dev
-#        uses: navikt/frontend/actions/spa-deploy/v2@main
+#        uses: nais/deploy/actions/spa-deploy/v2@master
 #        with:
 #          app: helse-spalten
 #          team: tbd
@@ -46,7 +46,7 @@ jobs:
 #          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
 
       - name: Deploy prod
-        uses: navikt/frontend/actions/spa-deploy/v2@main
+        uses: nais/deploy/actions/spa-deploy/v2@master
         with:
           app: helse-spalten
           team: tbd
