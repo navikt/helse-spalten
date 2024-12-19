@@ -1,5 +1,4 @@
 import nyhet from './nyheter/nyhet'
-import nyhetsslide from './nyheter/nyhetsslide'
 import driftsmelding from './driftsmeldinger/driftsmelding'
 import subdomene from './varsler/subdomene'
 import kontekst from './varsler/kontekst'
@@ -8,10 +7,10 @@ import skjonnsfastsettelseMal from './skjønnsfastsettelse/mal'
 import lovhjemmel from './skjønnsfastsettelse/lovhjemmel'
 import avslag from './avslag/mal'
 import årsaker from './årsaker/årsaker'
+import { blockContent } from './nyheter/blockContent'
 
 export const schemaTypes = [
     nyhet,
-    nyhetsslide,
     driftsmelding,
     subdomene,
     kontekst,
@@ -19,5 +18,6 @@ export const schemaTypes = [
     skjonnsfastsettelseMal,
     lovhjemmel,
     avslag,
-    årsaker
+    årsaker,
+    blockContent,
 ]

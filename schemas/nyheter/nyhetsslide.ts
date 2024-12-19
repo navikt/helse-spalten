@@ -1,22 +1,27 @@
-import {defineField, defineType} from "sanity";
+import { ConditionalPropertyCallbackContext } from 'sanity'
 
-export default defineType({
-    name: 'nyhetsslide',
-    title: 'Nyhetsslide',
-    type: 'document',
+export const nyhetsslide = (num: number) => ({
+    name: `modalSlide${num}`,
+    title: `Modal Slide ${num}`,
+    type: 'object',
+    hidden: ({ parent }: ConditionalPropertyCallbackContext) =>
+        parent?.antallSlides === undefined || parent?.antallSlides < num,
     fields: [
-        defineField({
-            name: 'innhold',
-            title: 'Innhold',
-            type: 'array',
-            of: [
-                {
-                    type: 'block'
-                },
-                {
-                    type: 'image'
-                }
-            ]
-        }),
+        {
+            name: 'slideHeader',
+            type: 'string',
+            title: `Modaloverskrift ${num}`,
+        },
+        { name: 'slideImage', type: 'image', title: `Slidebilde ${num}` },
+        {
+            name: 'altText',
+            type: 'string',
+            title: `Alternativ tekst for bilde ${num}`,
+        },
+        {
+            name: 'slideDescription',
+            type: 'blockContent',
+            title: `Slidebeskrivelse ${num}`,
+        },
     ],
 })
