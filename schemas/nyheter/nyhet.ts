@@ -54,7 +54,7 @@ export default defineType({
                         parent?.antallSlides === undefined || parent?.antallSlides <= 0,
                 },
                 {
-                    name: 'modalHeader',
+                    name: 'modalOverskrift',
                     type: 'string',
                     title: 'Modaloverskrift',
                     hidden: ({ parent }) =>

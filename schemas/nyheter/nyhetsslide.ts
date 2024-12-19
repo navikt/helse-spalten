@@ -8,18 +8,18 @@ export const nyhetsslide = (num: number) => ({
         parent?.antallSlides === undefined || parent?.antallSlides < num,
     fields: [
         {
-            name: 'slideHeader',
+            name: 'slideOverskrift',
             type: 'string',
             title: `Modaloverskrift ${num}`,
         },
-        { name: 'slideImage', type: 'image', title: `Slidebilde ${num}` },
+        { name: 'slideBilde', type: 'image', title: `Slidebilde ${num}` },
         {
-            name: 'altText',
+            name: 'altTekst',
             type: 'string',
             title: `Alternativ tekst for bilde ${num}`,
         },
         {
-            name: 'slideDescription',
+            name: 'slideBeskrivelse',
             type: 'blockContent',
             title: `Slidebeskrivelse ${num}`,
         },
