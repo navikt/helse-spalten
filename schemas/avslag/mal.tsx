@@ -11,7 +11,7 @@ export default defineType({
     fields: [
         defineField({
             name: 'iProd',
-            title: 'Tilgjengelig i prod',
+            title: 'Publisert',
             type: 'boolean',
             description: 'Når denne er på vil malen være tilgjengelig for saksbehandlerene i prod',
         }),

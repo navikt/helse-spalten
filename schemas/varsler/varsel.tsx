@@ -8,7 +8,7 @@ export default defineType({
     fields: [
         defineField({
             name: 'iProduksjon',
-            title: 'Tilgjengelig i prod',
+            title: 'Publisert',
             type: 'boolean',
             description:
                 'Når denne er på vil varseldefinisjonen være tilgjengelig for saksbehandlerene i produksjonsmiljøet',
