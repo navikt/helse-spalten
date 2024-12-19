@@ -10,7 +10,7 @@ export const nyhetsslide = (num: number) => ({
         {
             name: 'slideOverskrift',
             type: 'string',
-            title: `Modaloverskrift ${num}`,
+            title: `Slide overskrift ${num}`,
         },
         { name: 'slideBilde', type: 'image', title: `Slidebilde ${num}` },
         {
