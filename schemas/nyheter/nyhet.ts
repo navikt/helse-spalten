@@ -35,17 +35,17 @@ export default defineType({
             validation: (Rule) => Rule.required(),
         },
         {
-            name: 'linkAttributes',
+            name: 'lenke',
             title: 'Lenke til mer informasjon',
             type: 'object',
             fields: [
                 {
-                    name: 'linkText',
+                    name: 'lenkeTekst',
                     title: 'Lenketekst',
                     type: 'string',
                 },
                 {
-                    name: 'link',
+                    name: 'lenkeUrl',
                     title: 'Lenke',
                     type: 'url',
                 },
