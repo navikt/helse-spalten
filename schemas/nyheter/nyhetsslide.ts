@@ -8,21 +8,21 @@ export const nyhetsslide = (num: number) =>
         hidden: ({ parent }: ConditionalPropertyCallbackContext) =>
             parent?.antallSlides === undefined || parent?.antallSlides < num,
         fields: [
-            {
+            defineField({
                 name: 'slideOverskrift',
                 type: 'string',
                 title: `Slide overskrift ${num}`,
-            },
-            { name: 'slideBilde', type: 'image', title: `Slidebilde ${num}` },
-            {
+            }),
+            defineField({ name: 'slideBilde', type: 'image', title: `Slidebilde ${num}` }),
+            defineField({
                 name: 'altTekst',
                 type: 'string',
                 title: `Alternativ tekst for bilde ${num}`,
-            },
-            {
+            }),
+            defineField({
                 name: 'slideBeskrivelse',
                 type: 'customPortableText',
                 title: `Slidebeskrivelse ${num}`,
-            },
+            }),
         ],
     })
