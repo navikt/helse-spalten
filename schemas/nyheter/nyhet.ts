@@ -39,16 +39,16 @@ export default defineType({
             title: 'Lenke til mer informasjon',
             type: 'object',
             fields: [
-                {
+                defineField({
                     name: 'lenkeTekst',
                     title: 'Lenketekst',
                     type: 'string',
-                },
-                {
+                }),
+                defineField({
                     name: 'lenkeUrl',
                     title: 'Lenke',
                     type: 'url',
-                },
+                }),
             ],
         }),
         defineField({
