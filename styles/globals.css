@@ -8,11 +8,13 @@
 @tailwind utilities;
 
 span[data-ui="Switch"] > #iProd[value="true"] + span > span:first-of-type,
-span[data-ui="Switch"] > #solved[value="true"] + span > span:first-of-type {
+span[data-ui="Switch"] > #solved[value="true"] + span > span:first-of-type,
+span[data-ui="Switch"] > #tvungenModal[value="true"] + span > span:first-of-type {
     background-color: #3b9d2e !important;
 }
 span[data-ui="Switch"] > #iProd[value="false"] + span > span:first-of-type,
-span[data-ui="Switch"] > #solved[value="false"] + span > span:first-of-type {
+span[data-ui="Switch"] > #solved[value="false"] + span > span:first-of-type,
+span[data-ui="Switch"] > #tvungenModal[value="false"] + span > span:first-of-type {
     background-color: #cf0000 !important;
 }
 

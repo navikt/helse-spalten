@@ -7,7 +7,7 @@ import skjonnsfastsettelseMal from './skjønnsfastsettelse/mal'
 import lovhjemmel from './skjønnsfastsettelse/lovhjemmel'
 import avslag from './avslag/mal'
 import årsaker from './årsaker/årsaker'
-import { blockContent } from './nyheter/blockContent'
+import blockContent from './nyheter/blockContent'
 
 export const schemaTypes = [
     nyhet,
