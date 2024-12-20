@@ -35,6 +35,23 @@ export default defineType({
             validation: (Rule) => Rule.required(),
         },
         {
+            name: 'linkAttributes',
+            title: 'Lenke til mer informasjon',
+            type: 'object',
+            fields: [
+                {
+                    name: 'linkText',
+                    title: 'Lenketekst',
+                    type: 'string',
+                },
+                {
+                    name: 'link',
+                    title: 'Lenke',
+                    type: 'url',
+                },
+            ],
+        },
+        {
             name: 'modal',
             title: 'Se hvordan-modal',
             type: 'object',
