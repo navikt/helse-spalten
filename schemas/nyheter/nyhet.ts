@@ -67,6 +67,7 @@ export default defineType({
                     name: 'tvungenModal',
                     title: 'Tvungen modal – dette tvinger modalen til å vises uten at brukeren klikker inn på endringsloggen',
                     type: 'boolean',
+                    initialValue: false,
                     hidden: ({ parent }) =>
                         parent?.antallSlides === undefined || parent?.antallSlides <= 0,
                 },

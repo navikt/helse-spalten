@@ -17,6 +17,7 @@ export default defineType({
             type: 'boolean',
             description:
                 'Når denne er på vil driftsmeldingen være synlig for saksbehandlerne i prod',
+            initialValue: false,
         }),
         defineField({
             name: 'solved',
