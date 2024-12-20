@@ -7,7 +7,7 @@ import skjonnsfastsettelseMal from './skjønnsfastsettelse/mal'
 import lovhjemmel from './skjønnsfastsettelse/lovhjemmel'
 import avslag from './avslag/mal'
 import årsaker from './årsaker/årsaker'
-import blockContent from './nyheter/blockContent'
+import customPortableText from './nyheter/customPortableText'
 
 export const schemaTypes = [
     nyhet,
@@ -19,5 +19,5 @@ export const schemaTypes = [
     lovhjemmel,
     avslag,
     årsaker,
-    blockContent,
+    customPortableText,
 ]

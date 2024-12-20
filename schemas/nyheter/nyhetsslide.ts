@@ -21,7 +21,7 @@ export const nyhetsslide = (num: number) =>
             },
             {
                 name: 'slideBeskrivelse',
-                type: 'blockContent',
+                type: 'customPortableText',
                 title: `Slidebeskrivelse ${num}`,
             },
         ],

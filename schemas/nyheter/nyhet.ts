@@ -15,7 +15,7 @@ export default defineType({
         defineField({
             name: 'beskrivelse',
             title: 'Beskrivelse',
-            type: 'blockContent',
+            type: 'customPortableText',
             description:
                 'Kort forklaring av hvilke endringer som er gjort, og hvordan disse påvirker saksbehandler',
             validation: (Rule) => Rule.required(),
