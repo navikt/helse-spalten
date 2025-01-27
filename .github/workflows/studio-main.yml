@@ -42,8 +42,6 @@ jobs:
 #          source: ./dist
 #          ingress: https://spalten.intern.dev.nav.no
 #          environment: dev
-#          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-#          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
 
       - name: Deploy prod
         uses: nais/deploy/actions/spa-deploy/v2@master
@@ -53,5 +51,3 @@ jobs:
           source: ./dist
           ingress: https://spalten.intern.nav.no,https://spalten.ansatt.nav.no
           environment: prod
-          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
