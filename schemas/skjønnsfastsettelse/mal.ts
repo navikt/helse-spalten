@@ -12,7 +12,7 @@ export default defineType({
     fields: [
         defineField({
             name: 'iProd',
-            title: 'Publisert',
+            title: 'Vis i prod?',
             type: 'boolean',
             description: 'Når denne er på vil malen være tilgjengelig for saksbehandlerne i prod',
         }),
