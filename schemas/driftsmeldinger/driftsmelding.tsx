@@ -55,6 +55,7 @@ export default defineType({
                     { title: 'Hendelse løst', value: 'success' },
                 ],
             },
+            description: 'Velg passende nivå for driftsmeldingen',
             validation: (Rule) => Rule.required().error('Level kan ikke være tom'),
         }),
         defineField({
