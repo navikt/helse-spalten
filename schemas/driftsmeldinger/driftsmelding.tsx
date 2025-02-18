@@ -13,18 +13,33 @@ export default defineType({
     fields: [
         defineField({
             name: 'iProd',
-            title: 'Publisert',
-            type: 'boolean',
-            description:
-                'Når denne er på vil driftsmeldingen være synlig for saksbehandlerne i prod',
-            initialValue: false,
+            title: 'Vis i prod?',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Nei', value: 'false' },
+                    { title: 'Ja', value: 'true' },
+                ],
+                layout: 'radio',
+                direction: 'horizontal',
+            },
+            description: 'Velg om driftsmeldingen skal være synlig for saksbehandlere i prod',
+            initialValue: 'true',
         }),
         defineField({
-            name: 'solved',
-            title: 'Fjerne fra utviklingsmiljø?',
-            type: 'boolean',
-            description:
-                'Når denne er på vil driftsmeldingen fjernes fra utviklingsmiljøet for utviklerene',
+            name: 'iDev',
+            title: 'Vis i dev?',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Nei', value: 'false' },
+                    { title: 'Ja', value: 'true' },
+                ],
+                layout: 'radio',
+                direction: 'horizontal',
+            },
+            description: 'Velg om driftsmeldingen skal være synlig i dev',
+            initialValue: 'false',
         }),
         defineField({
             name: 'level',
