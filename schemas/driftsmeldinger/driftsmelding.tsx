@@ -72,13 +72,6 @@ export default defineType({
                 'Mer utdypende om driftsmeldingen. Husk å skriv når det er forventet at problemet er løst.',
             validation: (Rule) => Rule.required().error('Melding kan ikke være tom'),
         }),
-        defineField({
-            name: 'opprettet',
-            title: 'Driftsmelding opprettet',
-            type: 'datetime',
-            initialValue: () => new Date().toISOString(),
-            validation: (Rule) => Rule.required().error('Dato og tid kan ikke være tom'),
-        }),
     ],
     preview: {
         select: {
