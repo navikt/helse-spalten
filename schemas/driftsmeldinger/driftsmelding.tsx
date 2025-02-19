@@ -1,6 +1,7 @@
 import {
     CheckmarkCircleFillIcon,
     ExclamationmarkTriangleFillIcon,
+    InformationSquareFillIcon,
     XMarkOctagonFillIcon,
 } from '@navikt/aksel-icons'
 import { defineField, defineType } from 'sanity'
@@ -79,18 +80,26 @@ export default defineType({
             title: 'tittel',
             level: 'level',
         },
-        prepare(selection) {
-            const { level } = selection
+        prepare(selection: { title: string; level: 'info' | 'warning' | 'error' | 'success' }) {
+            const levelTitles = {
+                info: 'Info',
+                warning: 'Hendelse',
+                error: 'Alvorlig hendelse',
+                success: 'Hendelse løst',
+            } as const
+
             return {
                 ...selection,
-                subtitle: `Nivå: ${level}`,
+                subtitle: `Nivå: ${levelTitles[selection.level]}`,
                 media:
-                    level === 'grønn' ? (
-                        <CheckmarkCircleFillIcon className={'text-green-300'} />
-                    ) : level === 'gul' ? (
-                        <ExclamationmarkTriangleFillIcon className={'text-orange-300'} />
+                    selection.level === 'success' ? (
+                        <CheckmarkCircleFillIcon />
+                    ) : selection.level === 'warning' ? (
+                        <ExclamationmarkTriangleFillIcon />
+                    ) : selection.level === 'error' ? (
+                        <XMarkOctagonFillIcon />
                     ) : (
-                        <XMarkOctagonFillIcon className={'text-red-300'} />
+                        <InformationSquareFillIcon />
                     ),
             }
         },
