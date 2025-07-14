@@ -34,15 +34,6 @@ jobs:
       - name: Bygg applikasjon
         run: yarn build
 
-#      - name: Deploy dev
-#        uses: nais/deploy/actions/spa-deploy/v2@master
-#        with:
-#          app: helse-spalten
-#          team: tbd
-#          source: ./dist
-#          ingress: https://spalten.intern.dev.nav.no
-#          environment: dev
-
       - name: Deploy prod
         uses: nais/deploy/actions/spa-deploy/v2@master
         with:
