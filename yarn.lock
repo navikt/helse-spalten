@@ -1816,10 +1816,10 @@
   resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-5.18.3.tgz#cbeeddfeca6dd1efbbbb93a29a7cc3a9d5f6df86"
   integrity sha512-/BfZKrx7S5bVfjCQzm0B+3QgSHitPOAn04Bq0hAplFWXveLG0HkrVauDxL6dq9mqFN8zAJCSTXZjltRjY+JoHA==
 
-"@navikt/ds-tailwind@^5.9.0":
-  version "5.18.3"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-tailwind/-/ds-tailwind-5.18.3.tgz#4cfe789b1917ddd52d5c6d5dc27568c59244c4d8"
-  integrity sha512-FyyicOO6tJBW9ewpzil4eCAbuf7PuAtSx98t8c5CjkwTOb58GjH3kYV0dNRsnZywKs6VSoDPy0UXxGPTQ8ff2w==
+"@navikt/ds-tailwind@^7.25.1":
+  version "7.25.1"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-tailwind/-/ds-tailwind-7.25.1.tgz#7f14a29c907d7d2dc75886bbe90f769f8acd36c0"
+  integrity sha512-pikrVMt2MUxfcG7Bwfl11ynwqTA1JoFINtCLzvLh7K4cykRbuR3rwrU2Xb0ZxeNCevy0X1OnBqNp7FB98oG5hg==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
