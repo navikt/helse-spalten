@@ -24,13 +24,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.43.0",
+    "sanity": "^4.0.0",
     "sanity-plugin-tags": "^2.0.2",
     "styled-components": "^6.1.15",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^3.0.1",
+    "@sanity/eslint-config-studio": "^4.0.0",
     "@types/react": "^18.0.25",
     "eslint": "^8.6.0",
     "prettier": "^3.0.2",
