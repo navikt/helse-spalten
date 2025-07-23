@@ -2614,7 +2614,7 @@
     "@sanity/client" "^7.8.0"
     "@sanity/media-library-types" "^1.0.0"
 
-"@sanity/ui@^2.16.4", "@sanity/ui@^2.16.7":
+"@sanity/ui@^2.16.7":
   version "2.16.7"
   resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-2.16.7.tgz#b0ffd55745ff112231de89cf6617e92ee6dd23b2"
   integrity sha512-gRTX/QyUR2Bg8mu7rZBWxt+eE1EFsnGgiqv9OZhQ5Yvy2tZ00W6TNLfCVdBBTDRScIWL2ytnGR7X8Tcb3Ie+gA==
@@ -2661,10 +2661,10 @@
     "@types/uuid" "^8.0.0"
     uuid "^8.0.0"
 
-"@sanity/vision@^3.24.1":
-  version "3.99.0"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-3.99.0.tgz#2bdd4b68b942f6e3082115c8127f76c5d3686807"
-  integrity sha512-vkCbUSEOrXvs/k3wmrt/vOvhu+ZXeBcxQq/w0pNKefBVCkPUVTwPfIn4qir7O78lCr6qitcKpdR+/LbQZwDvvw==
+"@sanity/vision@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-4.1.1.tgz#42e605482c3d6cd5d41cdb37a563c1a9d722e7bf"
+  integrity sha512-wAH/7yNZrZ8gBHb4Tpo1d/jCs3aexXGkRGvBP49rS16Hlzk7oR9uRbIwaOpcBRcFtIiOXAySlqDGVfh+7Qc9aQ==
   dependencies:
     "@codemirror/autocomplete" "^6.18.6"
     "@codemirror/commands" "^6.8.1"
@@ -2679,9 +2679,9 @@
     "@rexxars/react-split-pane" "^1.0.0"
     "@sanity/color" "^3.0.6"
     "@sanity/icons" "^3.7.4"
-    "@sanity/ui" "^2.16.4"
+    "@sanity/ui" "^2.16.7"
     "@sanity/uuid" "^3.0.2"
-    "@uiw/react-codemirror" "^4.23.8"
+    "@uiw/react-codemirror" "^4.24.1"
     is-hotkey-esm "^1.0.0"
     json-2-csv "^5.5.1"
     json5 "^2.2.3"
@@ -2689,9 +2689,9 @@
     quick-lru "^5.1.1"
     react-compiler-runtime "19.1.0-rc.2"
     react-fast-compare "^3.2.2"
-    react-rx "^4.1.30"
-    rxjs "^7.8.0"
-    use-effect-event "^2.0.2"
+    react-rx "^4.1.31"
+    rxjs "^7.8.2"
+    use-effect-event "^2.0.3"
 
 "@sanity/visual-editing-types@^1.1.3":
   version "1.1.3"
@@ -3034,7 +3034,7 @@
     "@codemirror/state" "^6.0.0"
     "@codemirror/view" "^6.0.0"
 
-"@uiw/react-codemirror@^4.23.8":
+"@uiw/react-codemirror@^4.24.1":
   version "4.24.1"
   resolved "https://registry.yarnpkg.com/@uiw/react-codemirror/-/react-codemirror-4.24.1.tgz#fefedd88f69d0f327faaac178191ea412ad82679"
   integrity sha512-BivF4NLqbuBQK5gPVhSkOARi9nPXw8X5r25EnInPeY+I9l1dfEX8O9V6+0xHTlGHyUo0cNfGEF9t1KHEicUfJw==
@@ -7450,7 +7450,7 @@ react-refresh@^0.17.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.17.0.tgz#b7e579c3657f23d04eccbe4ad2e58a8ed51e7e53"
   integrity sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==
 
-react-rx@^4.1.30, react-rx@^4.1.31:
+react-rx@^4.1.31:
   version "4.1.31"
   resolved "https://registry.yarnpkg.com/react-rx/-/react-rx-4.1.31.tgz#a2cec51e0061802c637a2a25ea5cea08123458ef"
   integrity sha512-wRdAh4yQ+hQkkcHRH4CC8RnyZWtTx76lhbqCEfrdXOvl65twRuTi6vmMQM/tQj7jguiPxiVN2hEJkjXsd6pstw==
@@ -7827,7 +7827,7 @@ rxjs-mergemap-array@^0.1.0:
   resolved "https://registry.yarnpkg.com/rxjs-mergemap-array/-/rxjs-mergemap-array-0.1.0.tgz#26619de2eae2d1b3f8b007b406b4deaac384a128"
   integrity sha512-19fXxPXN4X8LPWu7fg/nyX+nr0G97qSNXhEvF32cdgWuoyUVQ4MrFr+UL4HGip6iO5kbZOL4puAjPeQ/D5qSlA==
 
-rxjs@^7.0.0, rxjs@^7.8.0, rxjs@^7.8.1, rxjs@^7.8.2:
+rxjs@^7.0.0, rxjs@^7.8.1, rxjs@^7.8.2:
   version "7.8.2"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.8.2.tgz#955bc473ed8af11a002a2be52071bf475638607b"
   integrity sha512-dhKf903U/PQZY6boNNtAGdWbG85WAbjT/1xYoZIC7FAY0yWapOBQVsVrDl58W86//e1VpMNBtRV4MaXfdMySFA==
