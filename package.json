@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
+  "license": "MIT",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
@@ -25,7 +26,7 @@
     "react-is": "^18.2.0",
     "sanity": "^3.43.0",
     "sanity-plugin-tags": "^2.0.2",
-    "styled-components": "^6.1.14",
+    "styled-components": "^6.1.15",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
