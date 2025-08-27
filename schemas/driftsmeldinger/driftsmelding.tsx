@@ -1,7 +1,6 @@
 import {
     CheckmarkCircleFillIcon,
     ExclamationmarkTriangleFillIcon,
-    InformationSquareFillIcon,
     XMarkOctagonFillIcon,
 } from '@navikt/aksel-icons'
 import { defineField, defineType } from 'sanity'
@@ -13,8 +12,8 @@ export default defineType({
     type: 'document',
     fields: [
         defineField({
-            name: 'iProd',
-            title: 'Vis i prod?',
+            name: 'lost',
+            title: 'Er problemet løst?',
             type: 'string',
             options: {
                 list: [
@@ -24,8 +23,50 @@ export default defineType({
                 layout: 'radio',
                 direction: 'horizontal',
             },
-            description: 'Velg om driftsmeldingen skal være synlig for saksbehandlere i prod',
-            initialValue: 'true',
+            description: 'Velg om driftsmeldingen skal settes til løst (grønn)',
+            initialValue: 'false',
+        }),
+
+        defineField({
+            name: 'konsekvens',
+            title: 'Konsekvens',
+            type: 'string',
+            options: {
+                layout: 'radio',
+                list: [
+                    { title: 'Treghet i speil', value: 'treghet' },
+                    { title: 'Delvis mulig å saksbehandle i speil', value: 'delvisMulig' },
+                    { title: 'Ikke mulig å saksbehandle i speil', value: 'ikkeMulig' },
+                ],
+            },
+            description: 'Hvilken konsekvens har feilen?',
+            validation: (Rule) => Rule.required().error('Konsekvens kan ikke være tom'),
+        }),
+        defineField({
+            name: 'arsak',
+            title: 'Årsak',
+            type: 'string',
+            description: 'Hva skyldes feilen?',
+            validation: (Rule) => Rule.required().error('Årsak kan ikke være tom'),
+        }),
+        defineField({
+            name: 'tiltak',
+            title: 'Tiltak',
+            type: 'string',
+            description: 'Hvilke tiltak blir gjort for å rette feilen?',
+            validation: (Rule) => Rule.required().error('Tiltak kan ikke være tom'),
+        }),
+        defineField({
+            name: 'oppdatering',
+            title: 'Oppdatering',
+            type: 'string',
+            description: 'Oppdatering med status på problemet',
+        }),
+        defineField({
+            name: 'cta',
+            title: 'CTA (call to action)',
+            type: 'string',
+            description: 'Hva kan saksbehandler jobbe med mens det er nedetid?',
         }),
         defineField({
             name: 'iDev',
@@ -43,64 +84,56 @@ export default defineType({
             initialValue: 'false',
         }),
         defineField({
-            name: 'level',
-            title: 'Nivå',
+            name: 'iProd',
+            title: 'Vis i prod?',
             type: 'string',
             options: {
-                direction: 'horizontal',
-                layout: 'radio',
                 list: [
-                    { title: 'Info', value: 'info' },
-                    { title: 'Hendelse', value: 'warning' },
-                    { title: 'Alvorlig hendelse', value: 'error' },
-                    { title: 'Hendelse løst', value: 'success' },
+                    { title: 'Nei', value: 'false' },
+                    { title: 'Ja', value: 'true' },
                 ],
+                layout: 'radio',
+                direction: 'horizontal',
             },
-            description: 'Velg passende nivå for driftsmeldingen',
-            validation: (Rule) => Rule.required().error('Level kan ikke være tom'),
-        }),
-        defineField({
-            name: 'tittel',
-            title: 'Tittel',
-            type: 'string',
-            description: 'Eksempel: Driftsforstyrrelse i Speil',
-            validation: (Rule) => Rule.required().error('Tittel kan ikke være tom'),
-        }),
-        defineField({
-            name: 'melding',
-            title: 'Melding',
-            type: 'text',
-            description:
-                'Mer utdypende om driftsmeldingen. Husk å skriv når det er forventet at problemet er løst.',
-            validation: (Rule) => Rule.required().error('Melding kan ikke være tom'),
+            description: 'Velg om driftsmeldingen skal være synlig for saksbehandlere i prod',
+            initialValue: 'true',
         }),
     ],
     preview: {
         select: {
             title: 'tittel',
-            level: 'level',
+            lost: 'lost',
+            konsekvens: 'konsekvens',
         },
-        prepare(selection: { title: string; level: 'info' | 'warning' | 'error' | 'success' }) {
-            const levelTitles = {
-                info: 'Info',
-                warning: 'Hendelse',
-                error: 'Alvorlig hendelse',
-                success: 'Hendelse løst',
-            } as const
+        prepare(selection: { title: string; lost: string; konsekvens: string }) {
+            const { title, lost, konsekvens } = selection
+
+            let media
+            if (lost === 'true') {
+                media = <CheckmarkCircleFillIcon />
+            } else if (konsekvens === 'ikkeMulig') {
+                media = <XMarkOctagonFillIcon />
+            } else if (konsekvens === 'delvisMulig') {
+                media = <ExclamationmarkTriangleFillIcon />
+            } else if (konsekvens === 'treghet') {
+                media = <ExclamationmarkTriangleFillIcon />
+            }
+
+            const status =
+                lost === 'true'
+                    ? 'Løst'
+                    : konsekvens === 'ikkeMulig'
+                      ? 'Ikke mulig å saksbehandle'
+                      : konsekvens === 'delvisMulig'
+                        ? 'Delvis mulig å saksbehandle'
+                        : konsekvens === 'treghet'
+                          ? 'Treghet i speil'
+                          : 'Ingen konsekvens valgt'
 
             return {
-                ...selection,
-                subtitle: `Nivå: ${levelTitles[selection.level]}`,
-                media:
-                    selection.level === 'success' ? (
-                        <CheckmarkCircleFillIcon />
-                    ) : selection.level === 'warning' ? (
-                        <ExclamationmarkTriangleFillIcon />
-                    ) : selection.level === 'error' ? (
-                        <XMarkOctagonFillIcon />
-                    ) : (
-                        <InformationSquareFillIcon />
-                    ),
+                title,
+                subtitle: status,
+                media,
             }
         },
     },
