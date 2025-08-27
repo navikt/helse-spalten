@@ -1,6 +1,6 @@
 # Spalten
 
-[🔗 Spalten i prod](https://spalten.intern.nav.no/)
+[🔗 Spalten i prod](https://spalten.sanity.studio/)
 
 ## Beskrivelse
 
@@ -23,7 +23,7 @@ _Hva brukes Spalten til nå?_
 
 - Legg til sanity.io i [My Apps](http://myapplications.microsoft.com/).
 - Åpne spalten, trykk på navnet ditt øverst i høyre hjørne -> `Manage project`.
-- Logg inn med SSO.
+- Logg inn med SSO -> organisasjon er navikt
 - Velg `Members`.
 - Be en developer eller admin om developer-tilgang så du kan deploye.
 
