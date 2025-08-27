@@ -1806,10 +1806,10 @@
     hls.js "~1.6.6"
     mux-embed "^5.8.3"
 
-"@navikt/aksel-icons@^5.7.6":
-  version "5.18.3"
-  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-5.18.3.tgz#0e8ff38b54ec91be6c5e8d8574a3341ee87eb792"
-  integrity sha512-kytq0BT1xsJBrG7/eyDuMQLddQZA4OMT3Fw3VLGHsJNqjEWEVOl3uYCGL70Thvg0+du0s/Z3mXPQUQpIaDt7rg==
+"@navikt/aksel-icons@^7.29.0":
+  version "7.29.0"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-7.29.0.tgz#1e7bb0845b5399758f391e7fbadad8c43e480ce9"
+  integrity sha512-SBz8MVwp7e8MzAQLw0TTcn2o1my3eJI/cVRDtZE2pEopN7ykQBCfzZFj7cfW+5pn2tlgftW990d3GZ6vQoGzyw==
 
 "@navikt/ds-css@^5.9.0":
   version "5.18.3"
