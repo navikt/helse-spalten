@@ -31,5 +31,10 @@ jobs:
       - name: Installer avhengigheter
         run: yarn install --immutable
 
-      - name: Bygg applikasjon
-        run: yarn build
+      - name: Add sanity
+        run: yarn global add @sanity/cli
+
+      - name: Deploy sanity
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+        run: sanity deploy
