@@ -16,6 +16,7 @@ _Hva brukes Spalten til nå?_
 - Oversikt over varsler
 - Aktivering/deaktivering (toggle) av driftsmeldinger i produksjon
 - Endring av Annulleringsårsaker
+- Endring av På vent-årsaker
 
 ## Kom i gang
 
@@ -34,36 +35,31 @@ For å kunne foreta endringer i Spalten må du være medlem av AzureAD-gruppen t
 - npx yarn install
 - npx yarn dev
 
-### Deploy
-
-Du må deploye endringer i sanity i tillegg til at dette committes til Github.
-
-- npx yarn run sanity login --sso navikt
-- npx yarn run sanity deploy
-
 ## Hvordan lage driftsmelding
 
 For hver driftsmelding skal det lages et nytt dokument i Spalten.
 Dette finner du under kategorien "Driftsmeldinger".
 
-Driftsmeldingene består av tittel, melding og dato.
-Tittel skal være konkret og kort, mens meldingen kan være en mer detaljert beskrivelse og når det eventuelt forventes at problemet skal være løst.
-Datoen fylles inn automatisk når dokumentet opprettes.
+Eksempel av en driftsmelding
+![Mal driftsmelding.png](Mal%20driftsmelding.png)
 
-"Synlig i prod?" feltet skal toggles på (grønn) for at driftsmeldingen skal være synlig i speil.
+Driftsmeldingene består av konsekvens, årsak, tiltak, oppdatering og hva saksbehandler eventuelt kan jobbes med.
+Konsekvens er tittel og avgjør variant av driftsmelding (warning eller error) som er skissert under. Årsak skal beskrive hva feilen skyldes.
+Tiltak skal beskrive hva som blir gjort for å rette feilen. Oppdatering skal brukes hvis saken varer lengre enn en time.
+"Hva kan du gjøre?" skal beskrive hva saksbehandler eventuelt kan gjøre mens feilen pågår. Datoen fylles inn automatisk når dokumentet opprettes.
 
-![Synlig i prod toggle](synlig-i-prod-toggle.png)
+![Driftsmeldinger i speil](driftsmeldinger_i_speil.png)
 
-Driftsmeldingene består av nivåene "Info", "Hendelse" og "Alvorlig hendelse" som er skissert under. Velg riktig nivå for driftsmeldingen.
-
-![Varsler i speil](varsler-i-speil.png)
-
-Når driftsmeldingen er ferdig utfylt skal dette dokumentet publiseres.
-Dette gjøres ved å trykke nederst til høyre på "Publish".
+Når driftsmeldingen er ferdig utfylt skal dette dokumentet publiseres. Dette gjøres ved å trykke nederst til høyre på "Publish".
 Blir dokumentet ikke publisert blir det ikke laget en driftmelding.
 
-For å fjerne driftsmeldingen i speil så skal toggelen for prod skrus av og for å fjerne driftsmeldingen fra dev-miljø skal "Fjerne fra utviklingsmiljø?" toggles på.
-Dette må også publiseres for at driftsmeldingen skal fjernes.
+Oppdater driftsmeldingen når problemet er løst.
+
+![lost_radiobutton.png](lost_radiobutton.png)
+
+Driftsmeldingen blir oppdatert til grønn farge og får status "løst", denne blir stående i 30 minutter og blir borte automatisk.
+
+![lost_driftsmelding.png](lost_driftsmelding.png)
 
 ## Henvendelser
 
