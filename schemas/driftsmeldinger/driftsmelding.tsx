@@ -64,7 +64,7 @@ export default defineType({
         }),
         defineField({
             name: 'cta',
-            title: 'CTA (call to action)',
+            title: 'Hva kan jobbes med?',
             type: 'string',
             description: 'Hva kan saksbehandler jobbe med mens det er nedetid?',
         }),
