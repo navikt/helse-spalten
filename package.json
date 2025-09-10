@@ -17,7 +17,7 @@
   "dependencies": {
     "@navikt/aksel-icons": "^5.7.6",
     "@navikt/ds-css": "^5.9.0",
-    "@navikt/ds-tailwind": "^5.9.0",
+    "@navikt/ds-tailwind": "^7.30.0",
     "@sanity/vision": "^3.24.1",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.33",
