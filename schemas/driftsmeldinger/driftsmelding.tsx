@@ -101,12 +101,15 @@ export default defineType({
     ],
     preview: {
         select: {
-            title: 'tittel',
             lost: 'lost',
             konsekvens: 'konsekvens',
         },
-        prepare(selection: { title: string; lost: string; konsekvens: string }) {
-            const { title, lost, konsekvens } = selection
+        prepare({ lost, konsekvens }) {
+            const konsekvensTekster: Record<string, string> = {
+                treghet: 'Treghet i speil',
+                delvisMulig: 'Delvis mulig å saksbehandle i speil',
+                ikkeMulig: 'Ikke mulig å saksbehandle i speil',
+            }
 
             let media
             if (lost === 'true') {
@@ -119,20 +122,9 @@ export default defineType({
                 media = <ExclamationmarkTriangleFillIcon />
             }
 
-            const status =
-                lost === 'true'
-                    ? 'Løst'
-                    : konsekvens === 'ikkeMulig'
-                      ? 'Ikke mulig å saksbehandle'
-                      : konsekvens === 'delvisMulig'
-                        ? 'Delvis mulig å saksbehandle'
-                        : konsekvens === 'treghet'
-                          ? 'Treghet i speil'
-                          : 'Ingen konsekvens valgt'
-
             return {
-                title,
-                subtitle: status,
+                title: konsekvensTekster[konsekvens] ?? 'Ingen konsekvens valgt',
+                subtitle: lost === 'true' ? 'Løst' : konsekvensTekster[konsekvens],
                 media,
             }
         },
