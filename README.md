@@ -32,8 +32,8 @@ For å kunne foreta endringer i Spalten må du være medlem av AzureAD-gruppen t
 
 ### Utvikle lokalt
 
-- npx yarn install
-- npx yarn dev
+- pnpm install
+- pnpm dev
 
 ## Hvordan lage driftsmelding
 
