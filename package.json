@@ -34,11 +34,11 @@
         "sanity": "^4.0.0",
         "sanity-plugin-tags-v4": "^1.0.3",
         "styled-components": "^6.1.15",
-        "tailwindcss": "^3.4.1"
+        "tailwindcss": "^4.1.17"
     },
     "devDependencies": {
         "@sanity/eslint-config-studio": "^5.0.2",
-        "@types/react": "^18.0.25",
+        "@types/react": "^19.2.0",
         "eslint": "^9.39.1",
         "prettier": "^3.0.2",
         "typescript": "^5.1.6"
