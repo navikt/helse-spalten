@@ -4,6 +4,7 @@ export default defineType({
     name: 'lovhjemmel',
     title: 'Lovhjemmel',
     type: 'document',
+    // @ts-expect-error columns virker runtime, men finnes ikke i type definitions
     options: { columns: 4 },
     initialValue: (value, context) => ({
         paragraf: value.paragraf,
