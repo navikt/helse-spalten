@@ -8,7 +8,7 @@
         "node": "24.x",
         "pnpm": "10"
     },
-    "packageManager": "pnpm@10.24.0",
+    "packageManager": "pnpm@10.28.0",
     "scripts": {
         "dev": "sanity dev",
         "tsc": "tsc",
