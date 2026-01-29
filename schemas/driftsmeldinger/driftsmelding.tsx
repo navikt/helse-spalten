@@ -1,7 +1,6 @@
 import {
     CheckmarkCircleFillIcon,
     ExclamationmarkTriangleFillIcon,
-    InformationSquareFillIcon,
     XMarkOctagonFillIcon,
 } from '@navikt/aksel-icons'
 import { defineField, defineType } from 'sanity'
@@ -108,7 +107,6 @@ export default defineType({
         },
         prepare({ lost, konsekvens }) {
             const konsekvensTekster: Record<string, string> = {
-                informasjon: 'Informasjon',
                 treghet: 'Treghet i speil',
                 delvisMulig: 'Delvis mulig å saksbehandle i speil',
                 ikkeMulig: 'Ikke mulig å saksbehandle i speil',
@@ -123,8 +121,6 @@ export default defineType({
                 media = <ExclamationmarkTriangleFillIcon />
             } else if (konsekvens === 'treghet') {
                 media = <ExclamationmarkTriangleFillIcon />
-            } else if (konsekvens === 'informasjon') {
-                media = <InformationSquareFillIcon />
             }
 
             return {
