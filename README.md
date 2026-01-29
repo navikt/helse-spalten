@@ -32,8 +32,9 @@ For å kunne foreta endringer i Spalten må du være medlem av AzureAD-gruppen t
 
 ### Utvikle lokalt
 
-- pnpm install
-- pnpm dev
+1. Installer prosjektet - `pnpm install`
+2. Kjør Speil lokalt med next dev server - `pnpm run dev`
+
 
 ## Hvordan lage driftsmelding
 
