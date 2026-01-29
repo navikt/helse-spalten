@@ -34,7 +34,6 @@ export default defineType({
             options: {
                 layout: 'radio',
                 list: [
-                    { title: 'Informasjon', value: 'informasjon' },
                     { title: 'Treghet i speil', value: 'treghet' },
                     { title: 'Delvis mulig å saksbehandle i speil', value: 'delvisMulig' },
                     { title: 'Ikke mulig å saksbehandle i speil', value: 'ikkeMulig' },
