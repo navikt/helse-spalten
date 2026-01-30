@@ -21,6 +21,15 @@ export default defineType({
             validation: (Rule) => Rule.required().error('Beskrivelse kan ikke være tom'),
         }),
         defineField({
+            name: 'synligTil',
+            title: 'Synlig til',
+            type: 'datetime',
+            initialValue: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString(),
+            description:
+                'Velg når meldingen skal bli borte. Standard er satt til 4 timer frem i tid.',
+            validation: (Rule) => Rule.required().error('Beskrivelse kan ikke være tom'),
+        }),
+        defineField({
             name: 'iDev',
             title: 'Vis i dev?',
             type: 'string',
