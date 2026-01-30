@@ -8,10 +8,12 @@ import lovhjemmel from './skjønnsfastsettelse/lovhjemmel'
 import avslag from './avslag/mal'
 import årsaker from './årsaker/årsaker'
 import customPortableText from './nyheter/customPortableText'
+import informasjonsmelding from './driftsmeldinger/informasjonsmelding'
 
 export const schemaTypes = [
     nyhet,
     driftsmelding,
+    informasjonsmelding,
     subdomene,
     kontekst,
     varsel,

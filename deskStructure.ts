@@ -16,7 +16,24 @@ export const deskStructure = (S: StructureBuilder) => {
             S.listItem()
                 .title('Driftsmeldinger')
                 .icon(InformationSquareIcon)
-                .child(S.documentTypeList('driftsmelding').title('Driftsmeldinger')),
+                .child(
+                    S.list()
+                        .title('Meldinger')
+                        .items([
+                            S.listItem()
+                                .title('Driftsmeldinger')
+                                .child(
+                                    S.documentTypeList('driftsmelding').title('Driftsmeldinger'),
+                                ),
+                            S.listItem()
+                                .title('Informasjonsmeldinger')
+                                .child(
+                                    S.documentTypeList('informasjonsmelding').title(
+                                        'Informasjonsmeldinger',
+                                    ),
+                                ),
+                        ]),
+                ),
             S.listItem()
                 .title('Varsler')
                 .icon(ExclamationmarkTriangleIcon)
