@@ -4,7 +4,7 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { deskStructure } from './deskStructure'
 // @ts-expect-error theme virker runtime, men ts klarer ikke å forstå det
-import { theme } from 'https://themer.sanity.build/api/hues?preset=pink-synth'
+import { theme } from 'https://themer.sanity.build/api/hues?default=252e3c&primary=ee819c;400'
 import { tags } from 'sanity-plugin-tags-v4'
 
 export default defineConfig({
