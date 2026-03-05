@@ -9,11 +9,13 @@ import avslag from './avslag/mal'
 import årsaker from './årsaker/årsaker'
 import customPortableText from './nyheter/customPortableText'
 import informasjonsmelding from './driftsmeldinger/informasjonsmelding'
+import statusoppdatering from './driftsmeldinger/statusoppdatering'
 
 export const schemaTypes = [
     nyhet,
     driftsmelding,
     informasjonsmelding,
+    statusoppdatering,
     subdomene,
     kontekst,
     varsel,

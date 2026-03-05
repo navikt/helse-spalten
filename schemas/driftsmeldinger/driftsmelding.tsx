@@ -63,6 +63,17 @@ export default defineType({
             description: 'Oppdatering med status på problemet',
         }),
         defineField({
+            name: 'oppdateringer',
+            title: 'Oppdateringer',
+            type: 'array',
+            of: [{ type: 'statusoppdatering' }],
+            description: 'Oppdateringer med status på problemet',
+            options: {
+                sortable: false,
+                disableActions: ['addBefore'],
+            },
+        }),
+        defineField({
             name: 'cta',
             title: 'Hva kan jobbes med?',
             type: 'string',
