@@ -6,6 +6,7 @@ import { deskStructure } from './deskStructure'
 // @ts-expect-error theme virker runtime, men ts klarer ikke å forstå det
 import { theme } from 'https://themer.sanity.build/api/hues?default=252e3c&primary=ee819c;400'
 import { tags } from 'sanity-plugin-tags-v4'
+import { DATASET } from './env'
 
 export default defineConfig({
     name: 'default',
@@ -13,7 +14,7 @@ export default defineConfig({
     theme,
 
     projectId: 'z9kr8ddn',
-    dataset: 'production',
+    dataset: DATASET,
 
     plugins: [structureTool({ structure: deskStructure }), visionTool(), tags({})],
 
@@ -49,7 +50,7 @@ export default defineConfig({
     },
     auth: createAuthStore({
         projectId: 'z9kr8ddn',
-        dataset: `production`,
+        dataset: DATASET,
         redirectOnSingle: true,
         providers: () => [
             {
