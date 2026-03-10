@@ -10,6 +10,9 @@ import årsaker from './årsaker/årsaker'
 import customPortableText from './nyheter/customPortableText'
 import informasjonsmelding from './driftsmeldinger/informasjonsmelding'
 import statusoppdatering from './driftsmeldinger/statusoppdatering'
+import vilkårskode from './kodeverk/vilkårskode'
+import vilkår from './kodeverk/vilkår'
+import { muligVurdering } from './kodeverk/vurdering'
 
 export const schemaTypes = [
     nyhet,
@@ -24,4 +27,7 @@ export const schemaTypes = [
     avslag,
     årsaker,
     customPortableText,
+    vilkårskode,
+    vilkår,
+    muligVurdering,
 ]

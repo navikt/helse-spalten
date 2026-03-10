@@ -213,5 +213,17 @@ export const deskStructure = (S: StructureBuilder) => {
                                 ),
                         ]),
                 ),
+            S.listItem()
+                .title('Kodeverk')
+                .child(
+                    S.list()
+                        .title('Kodeverk')
+                        .items([
+                            S.listItem()
+                                .title('Vilkårskoder')
+                                .child(S.documentTypeList('vilkarskode')),
+                            S.listItem().title('Vilkår').child(S.documentTypeList('vilkar')),
+                        ]),
+                ),
         ])
 }
