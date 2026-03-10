@@ -48,7 +48,7 @@ const getVarselkoder = async (
     subdomene: string,
     kontekst: string,
 ): Promise<Varselkode[]> => {
-    const query = `*[_type=="varsel" && subdomene._ref == $subdomene && kontekst._ref == $kontekst]{'varselkode': varselkode, 'kontekst': kontekst->forkortelse, 'subdomene': subdomene->forkortelse}`
+    const query = `*[_type=="varsel" && subdomene._ref == $subdomene && kontekst._ref == $kontekst && varselkode != null]{'varselkode': varselkode, 'kontekst': kontekst->forkortelse, 'subdomene': subdomene->forkortelse}`
     return client
         .fetch(query, { subdomene: subdomene, kontekst: kontekst }, { perspective: 'published' })
         .then((it: Varsel[]) =>
