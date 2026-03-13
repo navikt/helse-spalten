@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { CheckmarkCircleIcon, XMarkOctagonIcon } from '@navikt/aksel-icons'
+import { CheckmarkCircleIcon, CircleSlashIcon, XMarkOctagonIcon } from '@navikt/aksel-icons'
 
 export const muligVurdering = defineType({
     name: 'muligVurdering',
@@ -31,8 +31,9 @@ export const muligVurdering = defineType({
             type: 'string',
             options: {
                 list: [
-                    { title: 'Innvilgelse', value: 'innvilgelse' },
-                    { title: 'Avslag', value: 'avslag' },
+                    { title: 'Oppfylt', value: 'oppfylt' },
+                    { title: 'Ikke oppfylt', value: 'ikke-oppfylt' },
+                    { title: 'Unntak', value: 'unntak' },
                 ],
                 layout: 'radio',
                 direction: 'horizontal',
@@ -47,12 +48,21 @@ export const muligVurdering = defineType({
         prepare({ beskrivelse, utfall }) {
             return {
                 title: beskrivelse,
+                subtitle:
+                    'Utfall: ' +
+                    (utfall === 'oppfylt'
+                        ? 'Oppfylt'
+                        : utfall === 'ikke-oppfylt'
+                          ? 'Ikke oppfylt'
+                          : 'Unntak'),
                 media: () =>
-                    utfall === 'innvilgelse' ? (
+                    utfall === 'oppfylt' ? (
                         <CheckmarkCircleIcon className="stroke-icon-success" />
-                    ) : utfall === 'avslag' ? (
+                    ) : utfall === 'ikke-oppfylt' ? (
                         <XMarkOctagonIcon className="stroke-icon-danger" />
-                    ) : null,
+                    ) : (
+                        <CircleSlashIcon />
+                    ),
             }
         },
     },
