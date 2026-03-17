@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
-import { GavelIcon } from '@navikt/aksel-icons'
+import { GavelIcon, ParagraphIcon } from '@navikt/aksel-icons'
 
-export default defineType({
+export const avgjørelse = defineType({
     name: 'avgjorelse',
     title: 'Avgjørelse',
     type: 'document',
@@ -11,22 +11,9 @@ export default defineType({
             name: 'kode',
             title: 'Kode',
             type: 'reference',
-            to: [{ type: 'avgjorelseskode' }],
+            to: [{ type: 'avgjorelse.kode' }],
             validation: (Rule) => Rule.required(),
         },
-        defineField({
-            name: 'type',
-            title: 'Type',
-            type: 'string',
-            options: {
-                list: [
-                    { title: 'Inngangsvilkår', value: 'inngangsvilkar' },
-                    { title: 'Avslag', value: 'avslag' },
-                ],
-                layout: 'radio',
-                direction: 'horizontal',
-            },
-        }),
         {
             name: 'beskrivelse',
             title: 'Beskrivelse',
@@ -37,7 +24,43 @@ export default defineType({
             name: 'alternativer',
             title: 'Alternativer',
             type: 'array',
-            of: [{ type: 'muligVurdering' }],
+            of: [{ type: 'avgjorelse.alternativ' }],
         },
+    ],
+})
+
+export const avgjørelsealternativ = defineType({
+    name: 'avgjorelse.alternativ',
+    title: 'Alternativ',
+    type: 'document',
+    icon: ParagraphIcon,
+    fields: [
+        {
+            name: 'kode',
+            title: 'Kode',
+            type: 'string',
+            validation: (Rule) => Rule.required(),
+        },
+        {
+            name: 'beskrivelse',
+            title: 'Beskrivelse',
+            type: 'string',
+            validation: (Rule) => Rule.required(),
+        },
+    ],
+})
+
+export const avgjørelseskode = defineType({
+    name: 'avgjorelse.kode',
+    title: 'Kode',
+    type: 'document',
+    icon: ParagraphIcon,
+    fields: [
+        defineField({
+            name: 'kode',
+            title: 'Kode',
+            type: 'string',
+            validation: (Rule) => Rule.required().error('Kode kan ikke være tom'),
+        }),
     ],
 })

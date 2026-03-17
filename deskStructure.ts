@@ -220,8 +220,11 @@ export const deskStructure = (S: StructureBuilder) => {
                         .title('Kodeverk')
                         .items([
                             S.listItem()
+                                .title('Avgjørelse')
+                                .child(S.documentTypeList('avgjorelse')),
+                            S.listItem()
                                 .title('Vilkårskoder')
-                                .child(S.documentTypeList('vilkarskode')),
+                                .child(S.documentTypeList('vilkar.kode')),
                             S.listItem().title('Vilkår').child(S.documentTypeList('vilkar')),
                         ]),
                 ),

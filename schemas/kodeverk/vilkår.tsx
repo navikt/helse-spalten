@@ -1,9 +1,53 @@
 import { defineField, defineType } from 'sanity'
+import { GavelIcon, ParagraphIcon } from '@navikt/aksel-icons'
 import { CheckmarkCircleIcon, CircleSlashIcon, XMarkOctagonIcon } from '@navikt/aksel-icons'
 
-export const muligVurdering = defineType({
-    name: 'muligVurdering',
-    title: 'Mulig vurdering',
+export default defineType({
+    name: 'vilkar',
+    title: 'Vilkår',
+    type: 'document',
+    icon: GavelIcon,
+    fields: [
+        {
+            name: 'kode',
+            title: 'Vilkårskode',
+            type: 'reference',
+            to: [{ type: 'vilkar.kode' }],
+            validation: (Rule) => Rule.required(),
+        },
+        {
+            name: 'beskrivelse',
+            title: 'Beskrivelse',
+            type: 'string',
+            validation: (Rule) => Rule.required(),
+        },
+        {
+            name: 'alternativ',
+            title: 'Alternativer',
+            type: 'array',
+            of: [{ type: 'vilkar.alternativ' }],
+        },
+    ],
+})
+
+export const vilkårskode = defineType({
+    name: 'vilkar.kode',
+    title: 'Kode',
+    type: 'document',
+    icon: ParagraphIcon,
+    fields: [
+        defineField({
+            name: 'kode',
+            title: 'Kode',
+            type: 'string',
+            validation: (Rule) => Rule.required().error('Kode kan ikke være tom'),
+        }),
+    ],
+})
+
+export const vilkårAlternativ = defineType({
+    name: 'vilkar.alternativ',
+    title: 'Alternativ',
     type: 'document',
     fields: [
         defineField({
