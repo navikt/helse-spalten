@@ -10,7 +10,7 @@ import årsaker from './årsaker/årsaker'
 import customPortableText from './nyheter/customPortableText'
 import informasjonsmelding from './driftsmeldinger/informasjonsmelding'
 import statusoppdatering from './driftsmeldinger/statusoppdatering'
-import vilkår, { vilkårAlternativ, vilkårskode } from './kodeverk/vilkår'
+import vilkår, { vilkårAlternativ, vilkårLovhenvisning, vilkårskode } from './kodeverk/vilkår'
 import { avgjørelse, avgjørelsealternativ, avgjørelseskode } from './kodeverk/avgjørelse'
 
 export const schemaTypes = [
@@ -29,6 +29,7 @@ export const schemaTypes = [
     vilkårskode,
     vilkår,
     vilkårAlternativ,
+    vilkårLovhenvisning,
     avgjørelse,
     avgjørelseskode,
     avgjørelsealternativ,

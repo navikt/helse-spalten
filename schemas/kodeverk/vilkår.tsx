@@ -45,6 +45,53 @@ export const vilkårskode = defineType({
     ],
 })
 
+export const vilkårLovhenvisning = defineType({
+    name: 'vilkar.lovhenvisning',
+    title: 'Lovhenvisning',
+    type: 'object',
+    fields: [
+        defineField({
+            name: 'lovverk',
+            title: 'Lovverk',
+            type: 'string',
+            validation: (Rule) => Rule.required().min(2),
+        }),
+        defineField({
+            name: 'lovverksversjon',
+            title: 'Lovverksversjon',
+            type: 'string',
+            validation: (Rule) => Rule.required().min(2),
+        }),
+        defineField({
+            name: 'kapittel',
+            title: 'Kapittel',
+            type: 'string',
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'paragraf',
+            title: 'Paragraf',
+            type: 'string',
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'ledd',
+            title: 'Ledd',
+            type: 'string',
+        }),
+        defineField({
+            name: 'setning',
+            title: 'Setning',
+            type: 'string',
+        }),
+        defineField({
+            name: 'bokstav',
+            title: 'Bokstav',
+            type: 'string',
+        }),
+    ],
+})
+
 export const vilkårAlternativ = defineType({
     name: 'vilkar.alternativ',
     title: 'Alternativ',
@@ -68,6 +115,12 @@ export const vilkårAlternativ = defineType({
                 maxLength: 96,
             },
             validation: (Rule) => Rule.required().error('Kode kan ikke være tom'),
+        }),
+        defineField({
+            name: 'lovhenvisning',
+            title: 'Lovhenvisning',
+            type: 'vilkar.lovhenvisning',
+            validation: (Rule) => Rule.required(),
         }),
         defineField({
             name: 'utfall',
