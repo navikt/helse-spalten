@@ -33,7 +33,11 @@ For å kunne foreta endringer i Spalten må du være medlem av AzureAD-gruppen t
 ### Utvikle lokalt
 
 1. Installer prosjektet - `pnpm install`
-2. Kjør Speil lokalt med next dev server - `pnpm run dev`
+2. Opprett en lokal miljøfil (`.env.local`) og sett følgende variabel `SANITY_STUDIO_DATASET=local-development`.
+3. Kjør Spalten lokalt - `pnpm run dev`
+
+For lokal utvikling må du ha en .env.local-fil. Applikasjonen bruker da et eget Sanity-datasett (local-development).
+Lokal Speil kobler seg til dette i stedet for produksjons-datasettet.
 
 
 ## Hvordan lage driftsmelding
