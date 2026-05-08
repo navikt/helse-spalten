@@ -6,6 +6,9 @@ on:
       - '.idea/**'
     branches:
       - main
+  schedule:
+    - cron: '0 4 * * 3'
+      timezone: 'Europe/Oslo'
 
 env:
   IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
