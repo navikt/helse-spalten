@@ -1,6 +1,5 @@
 name: Bygg og deploy studio
 on:
-  workflow_dispatch:
   push:
     paths-ignore:
       - '.idea/**'
@@ -9,6 +8,10 @@ on:
   schedule:
     - cron: '0 4 * * 3'
       timezone: 'Europe/Oslo'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
   IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
@@ -22,10 +25,10 @@ jobs:
       id-token: 'write'
 
     steps:
-      - name: Checkout code
+      - name: Sjekk ut kode
         uses: actions/checkout@v6
 
-      - name: Install pnpm
+      - name: Installer pnpm
         uses: pnpm/action-setup@v4
 
       - name: Konfigurer Node
@@ -37,7 +40,14 @@ jobs:
       - name: Installer avhengigheter
         run: pnpm install --frozen-lockfile
 
+      - name: Valider TypeScript
+        run: pnpm tsc
+
+      - name: Bygg app
+        run: pnpm build
+
       - name: Deploy sanity
+        if: ${{ github.ref_name == 'main' }}
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
           SANITY_STUDIO_DATASET: production
