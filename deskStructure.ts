@@ -211,6 +211,14 @@ export const deskStructure = (S: StructureBuilder) => {
                                         .documentId('paventarsaker')
                                         .title('På vent årsaker'),
                                 ),
+                            S.listItem()
+                                .title('Forkasting')
+                                .child(
+                                    S.document()
+                                        .schemaType('arsaker')
+                                        .documentId('forkastingarsaker')
+                                        .title('Forkasting-årsaker'),
+                                ),
                         ]),
                 ),
             S.listItem()
