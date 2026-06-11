@@ -190,6 +190,57 @@ export const deskStructure = (S: StructureBuilder) => {
                         ]),
                 ),
             S.listItem()
+                .title('Dialogmeldingmaler')
+                .child(
+                    S.list()
+                        .title('Dialogmeldingmaler')
+                        .items([
+                            S.listItem()
+                                .title('Enkeltstående behandlingsdager')
+                                .child(
+                                    S.list()
+                                        .title('Maler')
+                                        .items([
+                                            S.listItem()
+                                                .title('Ny')
+                                                .child(
+                                                    S.document()
+                                                        .schemaType('dialogmeldingmal')
+                                                        .documentId('dialogmeldingmalEnkeltstandeNy'),
+                                                ),
+                                            S.listItem()
+                                                .title('Forlengelse')
+                                                .child(
+                                                    S.document()
+                                                        .schemaType('dialogmeldingmal')
+                                                        .documentId('dialogmeldingmalEnkeltstandeForlengelse'),
+                                                ),
+                                        ]),
+                                ),
+                            S.listItem()
+                                .title('Tilbakedatering')
+                                .child(
+                                    S.document()
+                                        .schemaType('dialogmeldingmal')
+                                        .documentId('dialogmeldingmalTilbakedatering'),
+                                ),
+                            S.listItem()
+                                .title('Yrkesskade')
+                                .child(
+                                    S.document()
+                                        .schemaType('dialogmeldingmal')
+                                        .documentId('dialogmeldingmalYrkesskade'),
+                                ),
+                            S.listItem()
+                                .title('Bestridelse')
+                                .child(
+                                    S.document()
+                                        .schemaType('dialogmeldingmal')
+                                        .documentId('dialogmeldingmalBestridelse'),
+                                ),
+                        ]),
+                ),
+            S.listItem()
                 .title('Årsaker')
                 .child(
                     S.list()

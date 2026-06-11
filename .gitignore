@@ -91,6 +91,11 @@ atlassian-ide-plugin.xml
 # Cursive Clojure plugin
 .idea/replstate.xml
 
+# Copilot / Material Theme
+.idea/copilot.data.migration.ask2agent.xml
+.idea/copilotDiffState.xml
+.idea/material_theme_project_new.xml
+
 # SonarLint plugin
 .idea/sonarlint/
 
