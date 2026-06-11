@@ -22,8 +22,7 @@ export default defineType({
         defineField({
             name: 'tekst',
             title: 'Tekst',
-            type: 'array',
-            of: [{ type: 'block' }],
+            type: 'text',
         }),
     ],
 })
