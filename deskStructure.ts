@@ -1,9 +1,5 @@
-import { StructureBuilder } from 'sanity/structure'
-import {
-    ExclamationmarkTriangleIcon,
-    InformationSquareIcon,
-    NewspaperIcon,
-} from '@navikt/aksel-icons'
+import {StructureBuilder} from 'sanity/structure'
+import {ExclamationmarkTriangleIcon, InformationSquareIcon, NewspaperIcon} from '@navikt/aksel-icons'
 
 export const deskStructure = (S: StructureBuilder) => {
     return S.list()
@@ -238,6 +234,35 @@ export const deskStructure = (S: StructureBuilder) => {
                                         .schemaType('dialogmeldingmal')
                                         .documentId('dialogmeldingmalBestridelse'),
                                 ),
+                            S.listItem()
+                                .title('Unntak fra arbeidsgiveransvar')
+                                .child(
+                                    S.list()
+                                        .title('Maler')
+                                        .items([
+                                            S.listItem()
+                                                .title('Kronisk syk')
+                                                .child(
+                                                    S.document()
+                                                        .schemaType('dialogmeldingmal')
+                                                        .documentId('dialogmeldingmalKroniskSyk'),
+                                                ),
+                                            S.listItem()
+                                                .title('Svangerskap uten W-diagnose')
+                                                .child(
+                                                    S.document()
+                                                        .schemaType('dialogmeldingmal')
+                                                        .documentId('dialogmeldingmalSvangerskapUtenWDiagnose'),
+                                                ),
+                                            S.listItem()
+                                                .title('Tidlig svangerskap og ikke huket av for svangerskapsrelatert')
+                                                .child(
+                                                    S.document()
+                                                        .schemaType('dialogmeldingmal')
+                                                        .documentId('dialogmeldingmalTidligSvangerskap'),
+                                                )
+                                        ]),
+                                )
                         ]),
                 ),
             S.listItem()
