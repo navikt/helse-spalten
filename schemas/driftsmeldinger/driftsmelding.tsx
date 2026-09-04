@@ -57,12 +57,6 @@ export default defineType({
             validation: (Rule) => Rule.required().error('Tiltak kan ikke være tom'),
         }),
         defineField({
-            name: 'oppdatering',
-            title: 'Oppdatering',
-            type: 'string',
-            description: 'Oppdatering med status på problemet',
-        }),
-        defineField({
             name: 'oppdateringer',
             title: 'Oppdateringer',
             type: 'array',
