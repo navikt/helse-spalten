@@ -235,6 +235,13 @@ export const deskStructure = (S: StructureBuilder) => {
                                         .documentId('dialogmeldingmalBestridelse'),
                                 ),
                             S.listItem()
+                                .title('Klage')
+                                .child(
+                                    S.document()
+                                        .schemaType('dialogmeldingmal')
+                                        .documentId('dialogmeldingmalKlage'),
+                                ),
+                            S.listItem()
                                 .title('Unntak fra arbeidsgiveransvar')
                                 .child(
                                     S.list()
@@ -262,13 +269,6 @@ export const deskStructure = (S: StructureBuilder) => {
                                                         .documentId('dialogmeldingmalTidligSvangerskap'),
                                                 )
                                         ]),
-                                ),
-                            S.listItem()
-                                .title('Klage')
-                                .child(
-                                    S.document()
-                                        .schemaType('dialogmeldingmal')
-                                        .documentId('dialogmeldingmalKlage'),
                                 ),
                         ]),
                 ),
