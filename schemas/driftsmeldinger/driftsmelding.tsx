@@ -4,6 +4,7 @@ import {
     XMarkOctagonFillIcon,
 } from '@navikt/aksel-icons'
 import { defineField, defineType } from 'sanity'
+import { Driftsstatus, gjeldendeKonsekvens, konsekvensTekster, validerStatuser } from './driftsstatusUtils'
 import '../../styles/globals.css'
 
 export default defineType({
@@ -28,50 +29,20 @@ export default defineType({
         }),
 
         defineField({
-            name: 'konsekvens',
-            title: 'Konsekvens',
-            type: 'string',
-            options: {
-                layout: 'radio',
-                list: [
-                    { title: 'Treghet i speil', value: 'treghet' },
-                    { title: 'Delvis mulig å saksbehandle i speil', value: 'delvisMulig' },
-                    { title: 'Ikke mulig å saksbehandle i speil', value: 'ikkeMulig' },
-                ],
-            },
-            description: 'Hvilken konsekvens har feilen?',
-            validation: (Rule) => Rule.required().error('Konsekvens kan ikke være tom'),
-        }),
-        defineField({
-            name: 'arsak',
-            title: 'Årsak',
-            type: 'string',
-            description: 'Hva skyldes feilen?',
-            validation: (Rule) => Rule.required().error('Årsak kan ikke være tom'),
-        }),
-        defineField({
-            name: 'tiltak',
-            title: 'Tiltak',
-            type: 'string',
-            description: 'Hvilke tiltak blir gjort for å rette feilen?',
-            validation: (Rule) => Rule.required().error('Tiltak kan ikke være tom'),
-        }),
-        defineField({
-            name: 'oppdateringer',
-            title: 'Oppdateringer',
+            name: 'statuser',
+            title: 'Statuser',
             type: 'array',
-            of: [{ type: 'statusoppdatering' }],
-            description: 'Oppdateringer med status på problemet',
+            of: [{ type: 'driftsstatus' }],
+            description:
+                'Den første statusen beskriver driftsmeldingen i sin helhet. I senere statuser fyller du kun ut det som har endret seg — speil viser den nyeste statusen øverst og resten som logg under «Tidligere statuser».',
             options: {
                 sortable: false,
-                disableActions: ['addBefore'],
+                disableActions: ['addBefore', 'duplicate'],
             },
-        }),
-        defineField({
-            name: 'cta',
-            title: 'Hva kan jobbes med?',
-            type: 'string',
-            description: 'Hva kan saksbehandler jobbe med mens det er nedetid?',
+            validation: (Rule) => [
+                Rule.required().min(1).error('Driftsmeldingen må ha minst én status'),
+                Rule.custom(validerStatuser),
+            ],
         }),
         defineField({
             name: 'iDev',
@@ -107,14 +78,10 @@ export default defineType({
     preview: {
         select: {
             lost: 'lost',
-            konsekvens: 'konsekvens',
+            statuser: 'statuser',
         },
-        prepare({ lost, konsekvens }) {
-            const konsekvensTekster: Record<string, string> = {
-                treghet: 'Treghet i speil',
-                delvisMulig: 'Delvis mulig å saksbehandle i speil',
-                ikkeMulig: 'Ikke mulig å saksbehandle i speil',
-            }
+        prepare({ lost, statuser }: { lost?: string; statuser?: Driftsstatus[] }) {
+            const konsekvens = gjeldendeKonsekvens(statuser)
 
             let media
             if (lost === 'true') {
@@ -127,9 +94,11 @@ export default defineType({
                 media = <ExclamationmarkTriangleFillIcon />
             }
 
+            const konsekvensTekst = konsekvensTekster[konsekvens ?? ''] ?? 'Ingen konsekvens valgt'
+
             return {
-                title: konsekvensTekster[konsekvens] ?? 'Ingen konsekvens valgt',
-                subtitle: lost === 'true' ? 'Løst' : konsekvensTekster[konsekvens],
+                title: konsekvensTekst,
+                subtitle: lost === 'true' ? 'Løst' : konsekvensTekst,
                 media,
             }
         },

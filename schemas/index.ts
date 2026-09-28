@@ -9,7 +9,7 @@ import avslag from './avslag/mal'
 import årsaker from './årsaker/årsaker'
 import customPortableText from './nyheter/customPortableText'
 import informasjonsmelding from './driftsmeldinger/informasjonsmelding'
-import statusoppdatering from './driftsmeldinger/statusoppdatering'
+import driftsstatus from './driftsmeldinger/driftsstatus'
 import vilkår, { vilkårAlternativ, vilkårLovhenvisning, vilkårskode } from './kodeverk/vilkår'
 import { avgjørelse, avgjørelsealternativ, avgjørelseskode } from './kodeverk/avgjørelse'
 import dialogmeldingmal from './dialogmeldingmaler/mal'
@@ -18,7 +18,7 @@ export const schemaTypes = [
     nyhet,
     driftsmelding,
     informasjonsmelding,
-    statusoppdatering,
+    driftsstatus,
     subdomene,
     kontekst,
     varsel,
