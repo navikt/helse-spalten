@@ -262,7 +262,14 @@ export const deskStructure = (S: StructureBuilder) => {
                                                         .documentId('dialogmeldingmalTidligSvangerskap'),
                                                 )
                                         ]),
-                                )
+                                ),
+                            S.listItem()
+                                .title('Klage')
+                                .child(
+                                    S.document()
+                                        .schemaType('dialogmeldingmal')
+                                        .documentId('dialogmeldingmalKlage'),
+                                ),
                         ]),
                 ),
             S.listItem()
