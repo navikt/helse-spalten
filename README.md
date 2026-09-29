@@ -12,9 +12,11 @@ _Hva brukes Spalten til nå?_
 
 - Endring av maler for skjønnsmessig fastsettelse § 8-30, 2. ledd og 3. ledd
   - Årsak, begrunnelse og konklusjon
-- Aktivering/deaktivering (toggle) av maler i produksjon
+- Aktivering/deaktivering av skriftlige maler i produksjon
 - Oversikt over varsler
-- Aktivering/deaktivering (toggle) av driftsmeldinger i produksjon
+- Opprettelse av driftsmeldinger
+- Opprettelse av informasjonsmeldinger
+- Opprettelse av nyheter
 - Endring av Annulleringsårsaker
 - Endring av På vent-årsaker
 
@@ -42,29 +44,32 @@ Lokal Speil kobler seg til dette i stedet for produksjons-datasettet.
 
 ## Hvordan lage driftsmelding
 
-For hver driftsmelding skal det lages et nytt dokument i Spalten.
-Dette finner du under kategorien "Driftsmeldinger".
+En driftsmelding brukes ved driftsforstyrrelser i Speil, for eksempel treghet eller nedetid. Den
+lages under `Driftsmeldinger` → `Meldinger` → `Driftsmeldinger` og består av én eller flere
+**statuser** (tidspunkt settes automatisk). Den første statusen må ha **konsekvens** (treghet /
+delvis mulig / ikke mulig å saksbehandle – bestemmer tittel og farge), **årsak** og **tiltak**, og
+kan i tillegg ha «Hva kan jobbes med?» og «Oppdatering». Senere statuser fyller du som regel bare
+ut «Oppdatering» med det som har endret seg. Speil viser nyeste status øverst og resten som logg
+under «Tidligere statuser».
 
-Eksempel av en driftsmelding
-![Mal driftsmelding.png](Mal%20driftsmelding.png)
+Velg om meldingen skal vises i dev (standard `Nei`) og prod (standard `Ja`), og publiser med
+`Publish`. Uten publisering lages ingen melding. Når problemet er løst, sett `Er problemet løst?`
+til `Ja`. Meldingen blir grønn med status «løst» og forsvinner automatisk etter 30 minutter.
 
-Driftsmeldingene består av konsekvens, årsak, tiltak, oppdatering og hva saksbehandler eventuelt kan jobbes med.
-Konsekvens er tittel og avgjør variant av driftsmelding (warning eller error) som er skissert under. Årsak skal beskrive hva feilen skyldes.
-Tiltak skal beskrive hva som blir gjort for å rette feilen. Oppdatering skal brukes hvis saken varer lengre enn en time.
-"Hva kan du gjøre?" skal beskrive hva saksbehandler eventuelt kan gjøre mens feilen pågår. Datoen fylles inn automatisk når dokumentet opprettes.
+## Hvordan lage informasjonsmelding
 
-![Driftsmeldinger i speil](driftsmeldinger_i_speil.png)
+En informasjonsmelding informerer saksbehandlere om noe som ikke er en driftsforstyrrelse. Den
+lages under `Driftsmeldinger` → `Meldinger` → `Informasjonsmeldinger`, med tittel, beskrivelse og
+et «Synlig til»-tidspunkt (standard 4 timer frem). Velg synlighet i dev (standard `Nei`) og prod
+(standard `Ja`), og publiser med `Publish` for at meldingen skal vises.
 
-Når driftsmeldingen er ferdig utfylt skal dette dokumentet publiseres. Dette gjøres ved å trykke nederst til høyre på "Publish".
-Blir dokumentet ikke publisert blir det ikke laget en driftmelding.
+## Hvordan lage nyhet
 
-Oppdater driftsmeldingen når problemet er løst.
-
-![lost_radiobutton.png](lost_radiobutton.png)
-
-Driftsmeldingen blir oppdatert til grønn farge og får status "løst", denne blir stående i 30 minutter og blir borte automatisk.
-
-![lost_driftsmelding.png](lost_driftsmelding.png)
+En nyhet vises i Nytt i Speil-modal og forklarer hvilke endringer som er gjort for
+saksbehandlerne. Den lages under `Nyheter`, med tittel, beskrivelse og lanseringsdato. Valgfritt
+kan du legge til en lenke til mer informasjon og en «Se hvordan»-modal med inntil tre slides, som
+kan settes til å vises automatisk. Nyheten blir synlig for saksbehandlere i prod først når
+`Vis i prod?` er på og du har publisert med `Publish`.
 
 ## Henvendelser
 
