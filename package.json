@@ -21,12 +21,12 @@
         "sanity"
     ],
     "dependencies": {
-        "@navikt/aksel-icons": "^7.35.0",
-        "@navikt/ds-css": "^7.35.0",
-        "@navikt/ds-tailwind": "^7.35.0",
+        "@navikt/aksel-icons": "^8.17.2",
+        "@navikt/ds-css": "^8.17.2",
+        "@navikt/ds-tailwind": "^8.17.2",
         "@sanity/ui": "^3.1.11",
         "@sanity/vision": "^4.12.0",
-        "autoprefixer": "^10.4.16",
+        "@tailwindcss/postcss": "^4.3.3",
         "postcss": "^8.4.33",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
@@ -34,7 +34,7 @@
         "sanity": "^4.0.0",
         "sanity-plugin-tags-v4": "^1.0.3",
         "styled-components": "^6.1.15",
-        "tailwindcss": "^3.4.1"
+        "tailwindcss": "^4.3.3"
     },
     "devDependencies": {
         "@sanity/eslint-config-studio": "^5.0.2",

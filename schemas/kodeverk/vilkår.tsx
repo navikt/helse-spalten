@@ -154,9 +154,9 @@ export const vilkårAlternativ = defineType({
                           : 'Unntak'),
                 media: () =>
                     utfall === 'oppfylt' ? (
-                        <CheckmarkCircleIcon className="stroke-icon-success" />
+                        <CheckmarkCircleIcon className="stroke-ax-text-success-decoration" />
                     ) : utfall === 'ikke-oppfylt' ? (
-                        <XMarkOctagonIcon className="stroke-icon-danger" />
+                        <XMarkOctagonIcon className="stroke-ax-text-danger-decoration" />
                     ) : (
                         <CircleSlashIcon />
                     ),
