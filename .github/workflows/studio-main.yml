@@ -35,10 +35,14 @@ jobs:
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@navikt'
           cache: 'pnpm'
 
       - name: Installer avhengigheter
         run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - name: Valider TypeScript
         run: pnpm tsc
