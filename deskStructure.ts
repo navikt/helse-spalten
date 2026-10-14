@@ -270,6 +270,13 @@ export const deskStructure = (S: StructureBuilder) => {
                                                 )
                                         ]),
                                 ),
+                            S.listItem()
+                                .title('Reisetilskudd')
+                                .child(
+                                    S.document()
+                                        .schemaType('dialogmeldingmal')
+                                        .documentId('dialogmeldingmalReisetilskudd'),
+                                ),
                         ]),
                 ),
             S.listItem()
