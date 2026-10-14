@@ -242,6 +242,13 @@ export const deskStructure = (S: StructureBuilder) => {
                                         .documentId('dialogmeldingmalKlage'),
                                 ),
                             S.listItem()
+                                .title('Reisetilskudd')
+                                .child(
+                                    S.document()
+                                        .schemaType('dialogmeldingmal')
+                                        .documentId('dialogmeldingmalReisetilskudd'),
+                                ),
+                            S.listItem()
                                 .title('Unntak fra arbeidsgiveransvar')
                                 .child(
                                     S.list()
@@ -269,13 +276,6 @@ export const deskStructure = (S: StructureBuilder) => {
                                                         .documentId('dialogmeldingmalTidligSvangerskap'),
                                                 )
                                         ]),
-                                ),
-                            S.listItem()
-                                .title('Reisetilskudd')
-                                .child(
-                                    S.document()
-                                        .schemaType('dialogmeldingmal')
-                                        .documentId('dialogmeldingmalReisetilskudd'),
                                 ),
                         ]),
                 ),
