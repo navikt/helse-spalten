@@ -6,6 +6,7 @@ export default defineCliConfig({
         projectId: 'z9kr8ddn',
         dataset: DATASET,
     },
+    studioHost: 'spalten',
     graphql: [
         {
             playground: true,
