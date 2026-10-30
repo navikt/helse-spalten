@@ -3,6 +3,7 @@
 minimumReleaseAge: 10080  # 7 dager i minutter. Matcher vår dependanbot-config
 
 trustPolicy: no-downgrade # Ikke tillat å oppdatere en pakke om "trust level" er lavere på ny versjon enn gammel
+trustPolicyIgnoreAfter: 129600 # 90 dager i minutter. Eldre versjoner sjekkes ikke for trust downgrade
 
 ignoreScripts: true # Fra pnpm docs: "Do not execute any scripts defined in the project package.json and its dependencies"
 
