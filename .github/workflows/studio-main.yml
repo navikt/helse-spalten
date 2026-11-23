@@ -45,6 +45,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
+      - name: Lint
+        run: pnpm lint
+
+      - name: Sjekk formatering
+        run: pnpm format:check
+
       - name: Valider TypeScript
         run: pnpm tsc
 

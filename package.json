@@ -12,7 +12,10 @@
     "scripts": {
         "dev": "sanity dev",
         "tsc": "tsc",
-        "lint": "eslint .",
+        "lint": "oxlint --report-unused-disable-directives",
+        "lint:fix": "oxlint --fix",
+        "format": "oxfmt",
+        "format:check": "oxfmt --check",
         "start": "sanity start",
         "build": "sanity build",
         "deploy": "sanity deploy",
@@ -38,18 +41,10 @@
         "tailwindcss": "^4.3.5"
     },
     "devDependencies": {
-        "@sanity/eslint-config-studio": "^7.0.0",
         "@types/node": "^24.19.2",
         "@types/react": "^19.3.0",
-        "eslint": "^10.15.0",
-        "prettier": "^3.10.1",
-        "typescript": "^5.9.3"
-    },
-    "prettier": {
-        "semi": false,
-        "printWidth": 100,
-        "bracketSpacing": true,
-        "singleQuote": true,
-        "tabWidth": 4
+        "oxfmt": "^0.79.0",
+        "oxlint": "^1.94.0",
+        "typescript": "^7.0.2"
     }
 }
