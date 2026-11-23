@@ -1,5 +1,6 @@
-import { defineField, defineType } from 'sanity'
-import { nyhetsslide } from './nyhetsslide'
+import { defineField, defineType } from 'sanity';
+
+import { nyhetsslide } from './nyhetsslide';
 
 export default defineType({
     name: 'nyhet',
@@ -16,15 +17,13 @@ export default defineType({
             name: 'beskrivelse',
             title: 'Beskrivelse',
             type: 'customPortableText',
-            description:
-                'Kort forklaring av hvilke endringer som er gjort, og hvordan disse påvirker saksbehandler',
+            description: 'Kort forklaring av hvilke endringer som er gjort, og hvordan disse påvirker saksbehandler',
             validation: (Rule) => Rule.required(),
         }),
         defineField({
             name: 'iProd',
             title: 'Vis i prod?',
-            description:
-                'Når denne er på vil nyheten være tilgjengelig for saksbehandlerene i prod',
+            description: 'Når denne er på vil nyheten være tilgjengelig for saksbehandlerene i prod',
             type: 'boolean',
             initialValue: false,
         }),
@@ -68,15 +67,13 @@ export default defineType({
                     title: 'Tvungen modal – dette tvinger modalen til å vises uten at brukeren klikker inn på endringsloggen',
                     type: 'boolean',
                     initialValue: false,
-                    hidden: ({ parent }) =>
-                        parent?.antallSlides === undefined || parent?.antallSlides <= 0,
+                    hidden: ({ parent }) => parent?.antallSlides === undefined || parent?.antallSlides <= 0,
                 }),
                 defineField({
                     name: 'modalOverskrift',
                     type: 'string',
                     title: 'Modaloverskrift',
-                    hidden: ({ parent }) =>
-                        parent?.antallSlides === undefined || parent?.antallSlides <= 0,
+                    hidden: ({ parent }) => parent?.antallSlides === undefined || parent?.antallSlides <= 0,
                 }),
                 nyhetsslide(1),
                 nyhetsslide(2),
@@ -91,4 +88,4 @@ export default defineType({
             by: [{ field: 'dato', direction: 'desc' }],
         },
     ],
-})
+});

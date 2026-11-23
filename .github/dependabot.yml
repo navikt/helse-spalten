@@ -7,27 +7,27 @@ registries:
 multi-ecosystem-groups:
   dependencies:
     schedule:
-      interval: "daily"
+      interval: 'daily'
     commit-message:
-      prefix: "⬆️ "
+      prefix: '⬆️ '
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    multi-ecosystem-group: "dependencies"
-    patterns: ["*"]
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    multi-ecosystem-group: 'dependencies'
+    patterns: ['*']
     cooldown:
       default-days: 7
       exclude:
-        - "navikt/sykepenger-github-workflows*"
+        - 'navikt/sykepenger-github-workflows*'
 
-  - package-ecosystem: "npm"
-    directory: "/"
-    multi-ecosystem-group: "dependencies"
-    patterns: ["*"]
-    registries: "*"
+  - package-ecosystem: 'npm'
+    directory: '/'
+    multi-ecosystem-group: 'dependencies'
+    patterns: ['*']
+    registries: '*'
     cooldown:
       default-days: 7
     ignore:
       # @types/node må følge Node-versjonen i Dockerfile og CI, så major-versjoner holdes tilbake
-      - dependency-name: "@types/node"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']

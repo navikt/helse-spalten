@@ -1,6 +1,7 @@
-import { defineField, defineType } from 'sanity'
-import { GavelIcon, ParagraphIcon } from '@navikt/aksel-icons'
-import { CheckmarkCircleIcon, CircleSlashIcon, XMarkOctagonIcon } from '@navikt/aksel-icons'
+import { defineField, defineType } from 'sanity';
+
+import { GavelIcon, ParagraphIcon } from '@navikt/aksel-icons';
+import { CheckmarkCircleIcon, CircleSlashIcon, XMarkOctagonIcon } from '@navikt/aksel-icons';
 
 export default defineType({
     name: 'vilkar',
@@ -28,7 +29,7 @@ export default defineType({
             of: [{ type: 'vilkar.alternativ' }],
         },
     ],
-})
+});
 
 export const vilkårskode = defineType({
     name: 'vilkar.kode',
@@ -43,7 +44,7 @@ export const vilkårskode = defineType({
             validation: (Rule) => Rule.required().error('Kode kan ikke være tom'),
         }),
     ],
-})
+});
 
 export const vilkårLovhenvisning = defineType({
     name: 'vilkar.lovhenvisning',
@@ -90,7 +91,7 @@ export const vilkårLovhenvisning = defineType({
             type: 'string',
         }),
     ],
-})
+});
 
 export const vilkårAlternativ = defineType({
     name: 'vilkar.alternativ',
@@ -109,8 +110,8 @@ export const vilkårAlternativ = defineType({
             type: 'slug',
             options: {
                 source: (_, context) => {
-                    const parent = context.parent as { beskrivelse?: string }
-                    return parent?.beskrivelse ?? ''
+                    const parent = context.parent as { beskrivelse?: string };
+                    return parent?.beskrivelse ?? '';
                 },
                 maxLength: 96,
             },
@@ -147,11 +148,7 @@ export const vilkårAlternativ = defineType({
                 title: beskrivelse,
                 subtitle:
                     'Utfall: ' +
-                    (utfall === 'oppfylt'
-                        ? 'Oppfylt'
-                        : utfall === 'ikke-oppfylt'
-                          ? 'Ikke oppfylt'
-                          : 'Unntak'),
+                    (utfall === 'oppfylt' ? 'Oppfylt' : utfall === 'ikke-oppfylt' ? 'Ikke oppfylt' : 'Unntak'),
                 media: () =>
                     utfall === 'oppfylt' ? (
                         <CheckmarkCircleIcon className="stroke-ax-text-success-decoration" />
@@ -160,7 +157,7 @@ export const vilkårAlternativ = defineType({
                     ) : (
                         <CircleSlashIcon />
                     ),
-            }
+            };
         },
     },
-})
+});

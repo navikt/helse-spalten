@@ -1,1 +1,1 @@
-export const DATASET = process.env.SANITY_STUDIO_DATASET!
+export const DATASET = process.env.SANITY_STUDIO_DATASET!;

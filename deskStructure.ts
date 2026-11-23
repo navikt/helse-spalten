@@ -1,14 +1,12 @@
-import {StructureBuilder} from 'sanity/structure'
-import {ExclamationmarkTriangleIcon, InformationSquareIcon, NewspaperIcon} from '@navikt/aksel-icons'
+import { StructureBuilder } from 'sanity/structure';
+
+import { ExclamationmarkTriangleIcon, InformationSquareIcon, NewspaperIcon } from '@navikt/aksel-icons';
 
 export const deskStructure = (S: StructureBuilder) => {
     return S.list()
         .title('Innhold')
         .items([
-            S.listItem()
-                .title('Nyheter')
-                .icon(NewspaperIcon)
-                .child(S.documentTypeList('nyhet').title('Nyheter')),
+            S.listItem().title('Nyheter').icon(NewspaperIcon).child(S.documentTypeList('nyhet').title('Nyheter')),
             S.listItem()
                 .title('Driftsmeldinger')
                 .icon(InformationSquareIcon)
@@ -18,16 +16,10 @@ export const deskStructure = (S: StructureBuilder) => {
                         .items([
                             S.listItem()
                                 .title('Driftsmeldinger')
-                                .child(
-                                    S.documentTypeList('driftsmelding').title('Driftsmeldinger'),
-                                ),
+                                .child(S.documentTypeList('driftsmelding').title('Driftsmeldinger')),
                             S.listItem()
                                 .title('Informasjonsmeldinger')
-                                .child(
-                                    S.documentTypeList('informasjonsmelding').title(
-                                        'Informasjonsmeldinger',
-                                    ),
-                                ),
+                                .child(S.documentTypeList('informasjonsmelding').title('Informasjonsmeldinger')),
                         ]),
                 ),
             S.listItem()
@@ -85,21 +77,15 @@ export const deskStructure = (S: StructureBuilder) => {
                                                                 .title('En arbeidsgiver')
                                                                 .child(
                                                                     S.document()
-                                                                        .schemaType(
-                                                                            'skjonnsfastsettelseMal',
-                                                                        )
-                                                                        .documentId(
-                                                                            '25ProsentEnArb',
-                                                                        )
+                                                                        .schemaType('skjonnsfastsettelseMal')
+                                                                        .documentId('25ProsentEnArb')
                                                                         .initialValueTemplate(
                                                                             'skjonnsfastsettelse-template',
                                                                             {
                                                                                 lovhjemmel: {
                                                                                     ledd: '2',
                                                                                 },
-                                                                                arbeidsforholdMal: [
-                                                                                    'EN_ARBEIDSGIVER',
-                                                                                ],
+                                                                                arbeidsforholdMal: ['EN_ARBEIDSGIVER'],
                                                                             },
                                                                         ),
                                                                 ),
@@ -107,12 +93,8 @@ export const deskStructure = (S: StructureBuilder) => {
                                                                 .title('Flere arbeidsgivere')
                                                                 .child(
                                                                     S.document()
-                                                                        .schemaType(
-                                                                            'skjonnsfastsettelseMal',
-                                                                        )
-                                                                        .documentId(
-                                                                            '25ProsentFlereArb',
-                                                                        )
+                                                                        .schemaType('skjonnsfastsettelseMal')
+                                                                        .documentId('25ProsentFlereArb')
                                                                         .initialValueTemplate(
                                                                             'skjonnsfastsettelse-template',
                                                                             {
@@ -137,21 +119,15 @@ export const deskStructure = (S: StructureBuilder) => {
                                                                 .title('En arbeidsgiver')
                                                                 .child(
                                                                     S.document()
-                                                                        .schemaType(
-                                                                            'skjonnsfastsettelseMal',
-                                                                        )
-                                                                        .documentId(
-                                                                            'uriktigRapporteringEnArb',
-                                                                        )
+                                                                        .schemaType('skjonnsfastsettelseMal')
+                                                                        .documentId('uriktigRapporteringEnArb')
                                                                         .initialValueTemplate(
                                                                             'skjonnsfastsettelse-template',
                                                                             {
                                                                                 lovhjemmel: {
                                                                                     ledd: '3',
                                                                                 },
-                                                                                arbeidsforholdMal: [
-                                                                                    'EN_ARBEIDSGIVER',
-                                                                                ],
+                                                                                arbeidsforholdMal: ['EN_ARBEIDSGIVER'],
                                                                             },
                                                                         ),
                                                                 ),
@@ -159,12 +135,8 @@ export const deskStructure = (S: StructureBuilder) => {
                                                                 .title('Flere arbeidsgivere')
                                                                 .child(
                                                                     S.document()
-                                                                        .schemaType(
-                                                                            'skjonnsfastsettelseMal',
-                                                                        )
-                                                                        .documentId(
-                                                                            'uriktigRapporteringFlereArb',
-                                                                        )
+                                                                        .schemaType('skjonnsfastsettelseMal')
+                                                                        .documentId('uriktigRapporteringFlereArb')
                                                                         .initialValueTemplate(
                                                                             'skjonnsfastsettelse-template',
                                                                             {
@@ -236,11 +208,7 @@ export const deskStructure = (S: StructureBuilder) => {
                                 ),
                             S.listItem()
                                 .title('Klage')
-                                .child(
-                                    S.document()
-                                        .schemaType('dialogmeldingmal')
-                                        .documentId('dialogmeldingmalKlage'),
-                                ),
+                                .child(S.document().schemaType('dialogmeldingmal').documentId('dialogmeldingmalKlage')),
                             S.listItem()
                                 .title('Reisetilskudd')
                                 .child(
@@ -274,7 +242,7 @@ export const deskStructure = (S: StructureBuilder) => {
                                                     S.document()
                                                         .schemaType('dialogmeldingmal')
                                                         .documentId('dialogmeldingmalTidligSvangerskap'),
-                                                )
+                                                ),
                                         ]),
                                 ),
                         ]),
@@ -317,14 +285,10 @@ export const deskStructure = (S: StructureBuilder) => {
                     S.list()
                         .title('Kodeverk')
                         .items([
-                            S.listItem()
-                                .title('Avgjørelse')
-                                .child(S.documentTypeList('avgjorelse')),
-                            S.listItem()
-                                .title('Vilkårskoder')
-                                .child(S.documentTypeList('vilkar.kode')),
+                            S.listItem().title('Avgjørelse').child(S.documentTypeList('avgjorelse')),
+                            S.listItem().title('Vilkårskoder').child(S.documentTypeList('vilkar.kode')),
                             S.listItem().title('Vilkår').child(S.documentTypeList('vilkar')),
                         ]),
                 ),
-        ])
-}
+        ]);
+};

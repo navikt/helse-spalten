@@ -1,6 +1,6 @@
 # Konfigurasjon for registry ligger i .npmrc, slik at vi henter navikt-pakker fra riktig sted
 
-minimumReleaseAge: 10080  # 7 dager i minutter. Matcher vår dependanbot-config
+minimumReleaseAge: 10080 # 7 dager i minutter. Matcher vår dependanbot-config
 
 trustPolicy: no-downgrade # Ikke tillat å oppdatere en pakke om "trust level" er lavere på ny versjon enn gammel
 trustPolicyIgnoreAfter: 129600 # 90 dager i minutter. Eldre versjoner sjekkes ikke for trust downgrade

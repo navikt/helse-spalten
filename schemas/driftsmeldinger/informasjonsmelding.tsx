@@ -1,5 +1,6 @@
-import { defineField, defineType } from 'sanity'
-import '../../styles/globals.css'
+import '../../styles/globals.css';
+
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
     name: 'informasjonsmelding',
@@ -25,8 +26,7 @@ export default defineType({
             title: 'Synlig til',
             type: 'datetime',
             initialValue: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString(),
-            description:
-                'Velg når meldingen skal bli borte. Standard er satt til 4 timer frem i tid.',
+            description: 'Velg når meldingen skal bli borte. Standard er satt til 4 timer frem i tid.',
             validation: (Rule) => Rule.required().error('Beskrivelse kan ikke være tom'),
         }),
         defineField({
@@ -65,4 +65,4 @@ export default defineType({
             title: 'tittel',
         },
     },
-})
+});

@@ -1,5 +1,6 @@
-import { defineField, defineType, TextInput } from 'sanity'
-import VarselkodeInput from '../../components/Varselkode'
+import { defineField, defineType, TextInput } from 'sanity';
+
+import VarselkodeInput from '../../components/Varselkode';
 
 export default defineType({
     name: 'varsel',
@@ -95,11 +96,11 @@ export default defineType({
             iProd: 'iProduksjon',
         },
         prepare(selection) {
-            const { tittel, varselkode, avviklet, iProd } = selection
+            const { tittel, varselkode, avviklet, iProd } = selection;
             return {
                 title: `${tittel}`,
                 subtitle: `${varselkode} ${avviklet ? '- avviklet' : iProd ? '- i prod' : '- kun i dev'}`,
-            }
+            };
         },
     },
-})
+});
