@@ -6,9 +6,9 @@
     "license": "MIT",
     "engines": {
         "node": "24.x",
-        "pnpm": "10"
+        "pnpm": "^12.21.0"
     },
-    "packageManager": "pnpm@10.28.0",
+    "packageManager": "pnpm@12.21.0",
     "scripts": {
         "dev": "sanity dev",
         "tsc": "tsc",
