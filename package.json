@@ -22,26 +22,27 @@
         "sanity"
     ],
     "dependencies": {
-        "@navikt/aksel-icons": "^8.20.0",
-        "@navikt/ds-css": "^8.20.0",
-        "@navikt/ds-tailwind": "^8.20.0",
-        "@sanity/ui": "^4.4.10",
-        "@sanity/vision": "^6.20.0",
-        "@tailwindcss/postcss": "^4.3.3",
-        "postcss": "^8.5.31",
+        "@navikt/aksel-icons": "^8.23.0",
+        "@navikt/ds-css": "^8.23.0",
+        "@navikt/ds-tailwind": "^8.23.0",
+        "@sanity/ui": "^4.4.12",
+        "@sanity/vision": "^6.23.0",
+        "@tailwindcss/postcss": "^4.3.5",
+        "postcss": "^8.5.33",
         "react": "^19.3.1",
         "react-dom": "^19.3.1",
         "react-is": "^19.3.1",
-        "sanity": "^6.20.0",
-        "sanity-plugin-tags-v4": "^1.0.22",
+        "sanity": "^6.23.0",
+        "sanity-plugin-tags-v4": "^1.0.25",
         "styled-components": "^6.6.0",
-        "tailwindcss": "^4.3.3"
+        "tailwindcss": "^4.3.5"
     },
     "devDependencies": {
         "@sanity/eslint-config-studio": "^7.0.0",
+        "@types/node": "^24.19.2",
         "@types/react": "^19.3.0",
-        "eslint": "^10.13.0",
-        "prettier": "^3.9.10",
+        "eslint": "^10.15.0",
+        "prettier": "^3.10.1",
         "typescript": "^5.9.3"
     },
     "prettier": {
