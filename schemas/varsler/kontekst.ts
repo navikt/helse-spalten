@@ -1,5 +1,6 @@
-import { CustomValidatorResult, defineField, defineType, ValidationContext } from 'sanity'
-import { TabsIcon } from '@navikt/aksel-icons'
+import { CustomValidatorResult, defineField, defineType, ValidationContext } from 'sanity';
+
+import { TabsIcon } from '@navikt/aksel-icons';
 
 export default defineType({
     name: 'kontekst',
@@ -39,25 +40,25 @@ export default defineType({
             subdomene: 'subdomene.navn',
         },
         prepare(selection) {
-            const { tittel, forkortelse, subdomene } = selection
+            const { tittel, forkortelse, subdomene } = selection;
             return {
                 title: `${tittel} (${forkortelse})`,
                 subtitle: `Subdomene: ${subdomene}`,
-            }
+            };
         },
     },
-})
+});
 
 const erUnikForkortelse = async (
     input: string | undefined,
     context: ValidationContext,
 ): Promise<CustomValidatorResult> => {
-    if (!input) return true
-    const { getClient, document } = context
-    const client = getClient({ apiVersion: '2022-12-07' })
-    const documentId = document?._id ? document._id.replace('drafts.', '') : undefined
-    const subdomene = (document?.subdomene as Subdomene)?._ref
-    const query = `count(*[_type=="kontekst" && subdomene._ref == $subdomene && forkortelse == $forkortelse && _id != $document_id]{_id})`
+    if (!input) return true;
+    const { getClient, document } = context;
+    const client = getClient({ apiVersion: '2022-12-07' });
+    const documentId = document?._id ? document._id.replace('drafts.', '') : undefined;
+    const subdomene = (document?.subdomene as Subdomene)?._ref;
+    const query = `count(*[_type=="kontekst" && subdomene._ref == $subdomene && forkortelse == $forkortelse && _id != $document_id]{_id})`;
 
     const isUnique = await client
         .fetch(
@@ -65,11 +66,11 @@ const erUnikForkortelse = async (
             { forkortelse: input, subdomene: subdomene, document_id: documentId },
             { perspective: 'published' },
         )
-        .then((count: number) => count == 0)
+        .then((count: number) => count == 0);
 
-    return isUnique ? isUnique : 'Forkortelsen må være unik'
-}
+    return isUnique ? isUnique : 'Forkortelsen må være unik';
+};
 
 interface Subdomene {
-    _ref: string
+    _ref: string;
 }

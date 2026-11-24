@@ -1,10 +1,12 @@
-import { createAuthStore, defineConfig, DocumentActionsContext } from 'sanity'
-import { structureTool } from 'sanity/structure'
-import { visionTool } from '@sanity/vision'
-import { schemaTypes } from './schemas'
-import { deskStructure } from './deskStructure'
-import { tags } from 'sanity-plugin-tags-v4'
-import { DATASET } from './env'
+import { createAuthStore, defineConfig, DocumentActionsContext } from 'sanity';
+import { tags } from 'sanity-plugin-tags-v4';
+import { structureTool } from 'sanity/structure';
+
+import { visionTool } from '@sanity/vision';
+
+import { deskStructure } from './deskStructure';
+import { DATASET } from './env';
+import { schemaTypes } from './schemas';
 
 export default defineConfig({
     name: 'default',
@@ -37,12 +39,9 @@ export default defineConfig({
     },
     document: {
         actions: (prev: any, context: DocumentActionsContext) => {
-            return context.schemaType === 'skjonnsfastsettelseMal' ||
-                context.schemaType === 'arsaker'
-                ? prev.filter(
-                      (obj: any) => obj.action === 'publish' || obj.action === 'discardChanges',
-                  )
-                : prev
+            return context.schemaType === 'skjonnsfastsettelseMal' || context.schemaType === 'arsaker'
+                ? prev.filter((obj: any) => obj.action === 'publish' || obj.action === 'discardChanges')
+                : prev;
         },
     },
     auth: createAuthStore({
@@ -58,4 +57,4 @@ export default defineConfig({
             },
         ],
     }),
-})
+});

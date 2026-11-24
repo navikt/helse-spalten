@@ -1,7 +1,8 @@
-import { defineField, defineType } from 'sanity'
-import { PreviewDriftsstatus } from './PreviewDriftsstatus'
-import { DriftsstatusInput, HOVEDINNHOLD_FIELDSET } from './DriftsstatusInput'
-import { formatterTidspunkt, konsekvensTekster, konsekvensValg } from './driftsstatusUtils'
+import { defineField, defineType } from 'sanity';
+
+import { DriftsstatusInput, HOVEDINNHOLD_FIELDSET } from './DriftsstatusInput';
+import { PreviewDriftsstatus } from './PreviewDriftsstatus';
+import { formatterTidspunkt, konsekvensTekster, konsekvensValg } from './driftsstatusUtils';
 
 export default defineType({
     name: 'driftsstatus',
@@ -40,8 +41,7 @@ export default defineType({
             title: 'Årsak',
             type: 'string',
             fieldset: HOVEDINNHOLD_FIELDSET,
-            description:
-                'Hva skyldes feilen? Fyll ut kun hvis den har endret seg siden forrige status.',
+            description: 'Hva skyldes feilen? Fyll ut kun hvis den har endret seg siden forrige status.',
         }),
         defineField({
             name: 'tiltak',
@@ -64,8 +64,7 @@ export default defineType({
             title: 'Oppdatering',
             type: 'text',
             rows: 3,
-            description:
-                'Hva har endret seg siden forrige status? Dette er som regel det eneste du fyller ut.',
+            description: 'Hva har endret seg siden forrige status? Dette er som regel det eneste du fyller ut.',
         }),
     ],
     components: {
@@ -79,12 +78,12 @@ export default defineType({
             oppdatering: 'oppdatering',
         },
         prepare({ tidspunkt, konsekvens, oppdatering }) {
-            const deler = [konsekvensTekster[konsekvens], oppdatering].filter(Boolean)
-            const detaljer = deler.length > 0 ? deler.join(': ') : 'Ingen endringer beskrevet'
+            const deler = [konsekvensTekster[konsekvens], oppdatering].filter(Boolean);
+            const detaljer = deler.length > 0 ? deler.join(': ') : 'Ingen endringer beskrevet';
 
             return {
                 title: `${formatterTidspunkt(tidspunkt)} — ${detaljer}`,
-            }
+            };
         },
     },
-})
+});

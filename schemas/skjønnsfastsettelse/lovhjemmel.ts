@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
     name: 'lovhjemmel',
@@ -18,7 +18,7 @@ export default defineType({
             title: 'Paragraf',
             type: 'string',
             readOnly: ({ parent }) => {
-                return parent?.lovhjemmel?.paragraf !== ''
+                return parent?.lovhjemmel?.paragraf !== '';
             },
         }),
         defineField({
@@ -26,7 +26,7 @@ export default defineType({
             title: 'Ledd',
             type: 'string',
             readOnly: ({ parent }) => {
-                return parent?.lovhjemmel?.ledd !== ''
+                return parent?.lovhjemmel?.ledd !== '';
             },
         }),
         defineField({
@@ -34,7 +34,7 @@ export default defineType({
             title: 'Lovverk',
             type: 'string',
             readOnly: ({ parent }) => {
-                return parent?.lovhjemmel?.lovverk !== ''
+                return parent?.lovhjemmel?.lovverk !== '';
             },
         }),
         defineField({
@@ -42,8 +42,8 @@ export default defineType({
             title: 'Lovverksversjon',
             type: 'string',
             readOnly: ({ parent }) => {
-                return parent?.lovhjemmel?.lovverksversjon !== ''
+                return parent?.lovhjemmel?.lovverksversjon !== '';
             },
         }),
     ],
-})
+});

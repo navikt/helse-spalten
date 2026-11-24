@@ -1,4 +1,4 @@
-import { ConditionalPropertyCallbackContext, defineField } from 'sanity'
+import { ConditionalPropertyCallbackContext, defineField } from 'sanity';
 
 export const nyhetsslide = (num: number) =>
     defineField({
@@ -25,4 +25,4 @@ export const nyhetsslide = (num: number) =>
                 title: `Slidebeskrivelse ${num}`,
             }),
         ],
-    })
+    });

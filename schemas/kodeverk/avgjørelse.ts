@@ -1,5 +1,6 @@
-import { defineField, defineType } from 'sanity'
-import { GavelIcon, ParagraphIcon } from '@navikt/aksel-icons'
+import { defineField, defineType } from 'sanity';
+
+import { GavelIcon, ParagraphIcon } from '@navikt/aksel-icons';
 
 export const avgjørelse = defineType({
     name: 'avgjorelse',
@@ -27,7 +28,7 @@ export const avgjørelse = defineType({
             of: [{ type: 'avgjorelse.alternativ' }],
         },
     ],
-})
+});
 
 export const avgjørelsealternativ = defineType({
     name: 'avgjorelse.alternativ',
@@ -48,7 +49,7 @@ export const avgjørelsealternativ = defineType({
             validation: (Rule) => Rule.required(),
         },
     ],
-})
+});
 
 export const avgjørelseskode = defineType({
     name: 'avgjorelse.kode',
@@ -63,4 +64,4 @@ export const avgjørelseskode = defineType({
             validation: (Rule) => Rule.required().error('Kode kan ikke være tom'),
         }),
     ],
-})
+});

@@ -1,5 +1,6 @@
-import { defineField, defineType } from 'sanity'
-import '../../styles/globals.css'
+import '../../styles/globals.css';
+
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
     name: 'avslag',
@@ -40,4 +41,4 @@ export default defineType({
             validation: (Rule) => Rule.required().error('må velge minst en av typene'),
         }),
     ],
-})
+});

@@ -1,5 +1,6 @@
-import { defineCliConfig } from 'sanity/cli'
-import { DATASET } from './env'
+import { defineCliConfig } from 'sanity/cli';
+
+import { DATASET } from './env';
 
 export default defineCliConfig({
     api: {
@@ -14,4 +15,4 @@ export default defineCliConfig({
             id: 'schema-experiment',
         },
     ],
-})
+});

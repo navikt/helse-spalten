@@ -1,6 +1,8 @@
-import {defineArrayMember, defineField, defineType, ObjectItemProps} from 'sanity'
-import '../../styles/globals.css'
-import {Card} from '@sanity/ui'
+import '../../styles/globals.css';
+
+import { defineArrayMember, defineField, defineType, ObjectItemProps } from 'sanity';
+
+import { Card } from '@sanity/ui';
 
 export default defineType({
     name: 'arsaker',
@@ -26,15 +28,15 @@ export default defineType({
     //     ],
     fields: [
         defineField({
-            name: "arsaker",
-            type: "array",
+            name: 'arsaker',
+            type: 'array',
             of: [
                 defineArrayMember({
-                    type: "object",
+                    type: 'object',
                     fields: [
                         defineField({
-                            name: "arsak",
-                            type: "string",
+                            name: 'arsak',
+                            type: 'string',
                             validation: (Rule) => Rule.required(),
                         }),
                     ],
@@ -50,7 +52,9 @@ export default defineType({
                                         inputProps: {
                                             ...restInputProps,
                                             renderPreview: (_) => (
-                                                <Card className="arsak" autoFocus={true}>{props.children}</Card>
+                                                <Card className="arsak" autoFocus={true}>
+                                                    {props.children}
+                                                </Card>
                                             ),
                                         },
                                         open: false,
@@ -63,4 +67,4 @@ export default defineType({
             ],
         }),
     ],
-})
+});

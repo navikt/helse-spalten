@@ -1,9 +1,9 @@
-import { at, defineMigration, set } from 'sanity/migrate'
+import { at, defineMigration, set } from 'sanity/migrate';
 
 interface VarselDocument {
-    _id: string
-    _type: 'varsel'
-    varselkode?: { current: string } | string
+    _id: string;
+    _type: 'varsel';
+    varselkode?: { current: string } | string;
 }
 
 export default defineMigration({
@@ -12,15 +12,11 @@ export default defineMigration({
 
     migrate: {
         document(doc, context) {
-            const varsel = doc as VarselDocument
-            if (
-                varsel.varselkode &&
-                typeof varsel.varselkode === 'object' &&
-                'current' in varsel.varselkode
-            ) {
-                return [at('varselkode', set(String(varsel.varselkode.current)))]
+            const varsel = doc as VarselDocument;
+            if (varsel.varselkode && typeof varsel.varselkode === 'object' && 'current' in varsel.varselkode) {
+                return [at('varselkode', set(String(varsel.varselkode.current)))];
             }
-            return []
+            return [];
         },
     },
-})
+});

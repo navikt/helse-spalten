@@ -1,5 +1,6 @@
-import '../../styles/globals.css'
-import { defineField, defineType } from 'sanity'
+import '../../styles/globals.css';
+
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
     name: 'skjonnsfastsettelseMal',
@@ -26,8 +27,7 @@ export default defineType({
             name: 'begrunnelse',
             title: 'Begrunnelse',
             type: 'text',
-            description:
-                'Mulige Variabler: ${omregnetÅrsinntekt}, ${omregnetMånedsinntekt}, ${sammenligningsgrunnlag}',
+            description: 'Mulige Variabler: ${omregnetÅrsinntekt}, ${omregnetMånedsinntekt}, ${sammenligningsgrunnlag}',
             validation: (Rule) => Rule.required().error('Begrunnelse kan ikke være tom'),
         }),
         defineField({
@@ -52,7 +52,7 @@ export default defineType({
                     (parent?.arbeidsforholdMal?.length ?? 0) > 0 &&
                     (parent.arbeidsforholdMal.includes('EN_ARBEIDSGIVER') ||
                         parent.arbeidsforholdMal.includes('FLERE_ARBEIDSGIVERE'))
-                )
+                );
             },
             of: [{ type: 'string' }],
             validation: (Rule) => Rule.required().error('arbeidsforholdMal kan ikke være tom'),
@@ -64,4 +64,4 @@ export default defineType({
             validation: (Rule) => Rule.required().error('lovhjemmel kan ikke være tom'),
         }),
     ],
-})
+});

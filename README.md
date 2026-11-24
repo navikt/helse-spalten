@@ -11,7 +11,7 @@ Sanity er et såkalt "hodeløst CMS" (Headless Content Management System) som gi
 _Hva brukes Spalten til nå?_
 
 - Endring av maler for skjønnsmessig fastsettelse § 8-30, 2. ledd og 3. ledd
-  - Årsak, begrunnelse og konklusjon
+    - Årsak, begrunnelse og konklusjon
 - Aktivering/deaktivering av skriftlige maler i produksjon
 - Oversikt over varsler
 - Opprettelse av driftsmeldinger
@@ -40,7 +40,6 @@ For å kunne foreta endringer i Spalten må du være medlem av AzureAD-gruppen t
 
 For lokal utvikling må du ha en .env.local-fil. Applikasjonen bruker da et eget Sanity-datasett (local-development).
 Lokal Speil kobler seg til dette i stedet for produksjons-datasettet.
-
 
 ## Hvordan lage driftsmelding
 

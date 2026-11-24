@@ -1,11 +1,10 @@
-import {
-    CheckmarkCircleFillIcon,
-    ExclamationmarkTriangleFillIcon,
-    XMarkOctagonFillIcon,
-} from '@navikt/aksel-icons'
-import { defineField, defineType } from 'sanity'
-import { Driftsstatus, gjeldendeKonsekvens, konsekvensTekster, validerStatuser } from './driftsstatusUtils'
-import '../../styles/globals.css'
+import '../../styles/globals.css';
+
+import { defineField, defineType } from 'sanity';
+
+import { CheckmarkCircleFillIcon, ExclamationmarkTriangleFillIcon, XMarkOctagonFillIcon } from '@navikt/aksel-icons';
+
+import { Driftsstatus, gjeldendeKonsekvens, konsekvensTekster, validerStatuser } from './driftsstatusUtils';
 
 export default defineType({
     name: 'driftsmelding',
@@ -81,26 +80,26 @@ export default defineType({
             statuser: 'statuser',
         },
         prepare({ lost, statuser }: { lost?: string; statuser?: Driftsstatus[] }) {
-            const konsekvens = gjeldendeKonsekvens(statuser)
+            const konsekvens = gjeldendeKonsekvens(statuser);
 
-            let media
+            let media;
             if (lost === 'true') {
-                media = <CheckmarkCircleFillIcon />
+                media = <CheckmarkCircleFillIcon />;
             } else if (konsekvens === 'ikkeMulig') {
-                media = <XMarkOctagonFillIcon />
+                media = <XMarkOctagonFillIcon />;
             } else if (konsekvens === 'delvisMulig') {
-                media = <ExclamationmarkTriangleFillIcon />
+                media = <ExclamationmarkTriangleFillIcon />;
             } else if (konsekvens === 'treghet') {
-                media = <ExclamationmarkTriangleFillIcon />
+                media = <ExclamationmarkTriangleFillIcon />;
             }
 
-            const konsekvensTekst = konsekvensTekster[konsekvens ?? ''] ?? 'Ingen konsekvens valgt'
+            const konsekvensTekst = konsekvensTekster[konsekvens ?? ''] ?? 'Ingen konsekvens valgt';
 
             return {
                 title: konsekvensTekst,
                 subtitle: lost === 'true' ? 'Løst' : konsekvensTekst,
                 media,
-            }
+            };
         },
     },
-})
+});
