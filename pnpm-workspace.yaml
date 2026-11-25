@@ -14,3 +14,9 @@ lockfile: true
 preferFrozenLockfile: true
 
 nodeVersion: 24.15.0
+
+# @sanity/cli låser @vercel/frameworks, som låser sårbare versjoner av js-yaml og smol-toml.
+# Fjern når @vercel/frameworks og @sanity/cli har løftet versjonene selv.
+overrides:
+  '@vercel/frameworks>js-yaml': ^3.15.2
+  '@vercel/frameworks>smol-toml': ^1.9.1
